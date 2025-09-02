@@ -1,0 +1,48 @@
+{
+  "navigation": {
+    "home": "/",
+    "features": "#features",
+    "tutorials": "#tutorials",
+    "downloads": "#downloads",
+    "support": "#support"
+  },
+  "social": {
+    "github": "https://github.com/Draver93/ff-studio",
+    "twitter": "",
+    "discord": "",
+    "youtube": "",
+    "facebook": "",
+    "linkedin": ""
+  },
+  "external": {
+    "documentation": "https://github.com/Draver93/ff-studio",
+    "blog": "",
+    "community": "",
+    "helpCenter": "",
+    "faq": "#tutorials",
+    "contact": "",
+    "reportIssue": "",
+    "privacyPolicy": "",
+    "termsOfService": "",
+    "license": "https://github.com/Draver93/ff-studio/blob/main/LICENSE",
+    "eula": ""
+  },
+  "downloads": {
+    "windows": "https://sourceforge.net/projects/ff-studio/files/v0.1.0-alpha/ffstudio_0.1.0-1_amd64.exe/download",
+    "macos": "",
+    "linux": "https://sourceforge.net/projects/ff-studio/files/v0.1.0-alpha/ffstudio_0.1.0-1_amd64.deb/download",
+    "android": ""
+  },
+  "tutorials": {
+    "gettingStarted": "https://www.youtube.com/watch?v=example1",
+    "videoCompression": "https://www.youtube.com/watch?v=compression1",
+    "watermarks": "https://www.youtube.com/watch?v=watermark1",
+    "batchProcessing": "https://www.youtube.com/watch?v=batch1",
+    "colorGrading": "https://www.youtube.com/watch?v=color1",
+    "audioSync": "https://www.youtube.com/watch?v=audio1"
+  },
+  "resources": {
+    "fontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+    "favicon": "assets/icons/favicon.ico"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "features": [
+    {
+      "id": "node-based",
+      "title": "Node-Based Workflow",
+      "description": "Create complex video processing pipelines with a simple drag-and-drop interface.",
+      "icon": "fas fa-project-diagram",
+      "category": "core",
+      "highlight": true
+    },
+    {
+      "id": "Custom-ffmpeg",
+      "title": "Works With Your Custom FFmpeg Build",
+      "description": "FFStudio auto-detects your FFmpeg build, including custom filters, and generates a visual interface tailored to its features.",
+      "icon": "fas fa-cog",
+      "category": "core",
+      "highlight": true
+    },
+    {
+      "id": "real-time-preview",
+      "title": "Real-Time Preview",
+      "description": "See changes instantly with our integrated video player and timeline.",
+      "icon": "fas fa-sliders-h",
+      "category": "core",
+      "highlight": true
+    },
+    {
+      "id": "ffmpeg-powered",
+      "title": "FFmpeg Powered",
+      "description": "Leverage the full power of FFmpeg without needing to learn command line syntax.",
+      "icon": "fas fa-bolt",
+      "category": "core",
+      "highlight": false
+    },
+    {
+      "id": "advanced-filters",
+      "title": "Advanced Filters",
+      "description": "Apply professional-grade video and audio filters with precision control.",
+      "icon": "fas fa-filter",
+      "category": "advanced",
+      "highlight": false
+    },
+    {
+      "id": "format-support",
+      "title": "Universal Format Support",
+      "description": "Support for all major video, audio, and image formats.",
+      "icon": "fas fa-file-video",
+      "category": "compatibility",
+      "highlight": false
+    },
+    {
+      "id": "gpu-acceleration",
+      "title": "GPU Acceleration",
+      "description": "Harness the power of your graphics card for faster rendering.",
+      "icon": "fas fa-microchip",
+      "category": "performance",
+      "highlight": false
+    }
+  ]
+}

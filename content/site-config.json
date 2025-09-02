@@ -1,0 +1,138 @@
+{
+  "site": {
+    "title": "FFStudio - Video Processing Made Simple",
+    "tagline": "Powerful video processing with FFmpeg",
+    "description": "FFStudio simplifies video editing workflows with a node-based interface powered by FFmpeg",
+    "keywords": "ffstudio, ffmpeg, video processing, video editing, node-based, workflow"
+  },
+  "navigation": [
+    {
+      "id": "features",
+      "label": "Features",
+      "url": "#features"
+    },
+    {
+      "id": "tutorials",
+      "label": "Tutorials",
+      "url": "#tutorials"
+    },
+    {
+      "id": "downloads",
+      "label": "Download",
+      "url": "#downloads"
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "url": "#support"
+    }
+  ],
+  "hero": {
+    "title": "Powerful Video Processing with FFmpeg",
+    "subtitle": "FFStudio simplifies video editing workflows with a node-based interface powered by FFmpeg",
+    "primaryButton": {
+      "text": "Download Now",
+      "url": "#downloads",
+      "icon": "fas fa-download"
+    },
+    "secondaryButton": {
+      "text": "View Tutorials",
+      "url": "#tutorials",
+      "icon": "fas fa-book"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "FFStudio",
+        "description": "Powerful video processing made simple with a node-based interface powered by FFmpeg.",
+        "socialLinks": [
+          {
+            "platform": "GitHub",
+            "url": "#",
+            "icon": "fab fa-github"
+          },
+          {
+            "platform": "Twitter",
+            "url": "#",
+            "icon": "fab fa-twitter"
+          },
+          {
+            "platform": "Discord",
+            "url": "#",
+            "icon": "fab fa-discord"
+          },
+          {
+            "platform": "YouTube",
+            "url": "#",
+            "icon": "fab fa-youtube"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "text": "Documentation",
+            "url": "#"
+          },
+          {
+            "text": "Tutorials",
+            "url": "#tutorials"
+          },
+          {
+            "text": "Blog",
+            "url": "#"
+          },
+          {
+            "text": "Community",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "title": "Support",
+        "links": [
+          {
+            "text": "Help Center",
+            "url": "#"
+          },
+          {
+            "text": "FAQ",
+            "url": "#"
+          },
+          {
+            "text": "Contact Us",
+            "url": "#"
+          },
+          {
+            "text": "Report an Issue",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "text": "Privacy Policy",
+            "url": "#"
+          },
+          {
+            "text": "Terms of Service",
+            "url": "#"
+          },
+          {
+            "text": "License",
+            "url": "#"
+          },
+          {
+            "text": "EULA",
+            "url": "#"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2025 FFStudio. All rights reserved."
+  }
+}

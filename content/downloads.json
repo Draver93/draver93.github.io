@@ -1,0 +1,27 @@
+{
+  "currentVersion": "0.1.0",
+  "releaseDate": "September 2, 2025",
+  "platforms": [
+    {
+      "id": "windows",
+      "name": "Windows",
+      "description": "For Windows 10 and 11",
+      "icon": "fab fa-windows",
+      "downloadUrl": "#"
+    },
+    {
+      "id": "macos",
+      "name": "macOS",
+      "description": "For macOS 10.15+",
+      "icon": "fab fa-apple",
+      "downloadUrl": "#"
+    },
+    {
+      "id": "linux",
+      "name": "Linux",
+      "description": ".deb package available",
+      "icon": "fab fa-linux",
+      "downloadUrl": "#"
+    }
+  ]
+}

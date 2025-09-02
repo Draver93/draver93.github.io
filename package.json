@@ -1,0 +1,36 @@
+{
+  "name": "ff-studio-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive website for FFStudio - a powerful video processing application powered by FFmpeg",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "ffstudio",
+    "ffmpeg",
+    "video-processing",
+    "website",
+    "responsive",
+    "modern-ui"
+  ],
+  "author": "FFStudio Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ff-studio-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/ff-studio-website/issues"
+  },
+  "homepage": "https://your-username.github.io/ff-studio-website",
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

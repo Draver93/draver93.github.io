@@ -1,0 +1,128 @@
+{
+  "tutorials": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started with FFStudio",
+      "description": "Learn the basics of the interface and create your first video processing workflow.",
+      "category": "Getting Started",
+      "readTime": "10 min read",
+      "date": "April 15, 2023",
+      "icon": "fas fa-play-circle",
+      "image": "tutorials/getting-started.png",
+      "tags": ["beginner", "interface", "workflow"],
+      "intro": "Welcome to FFStudio! This comprehensive guide will walk you through the essential concepts and help you create your first video processing workflow. Whether you're new to video editing or an experienced professional, this tutorial will get you up and running quickly.",
+      "sections": [
+        {
+          "title": "Understanding the Interface",
+          "content": "FFStudio features an intuitive node-based interface that makes complex video processing simple and visual. The main workspace is divided into several key areas that work together seamlessly.",
+          "image": "tutorials/getting-started.png"
+        },
+        {
+          "title": "Understanding the Interface",
+          "content": "FFStudio features an intuitive node-based interface that makes complex video processing simple and visual. The main workspace is divided into several key areas that work together seamlessly.",
+          "youtubeVideo": "https://www.youtube.com/watch?v=example1"
+        },
+        {
+          "title": "Creating Your First Workflow",
+          "content": "Let's start by creating a simple video processing workflow. We'll begin with basic operations and gradually build up to more complex tasks.",
+          "image": "tutorials/first-workflow.jpg",
+          "youtubeVideo": "https://www.youtube.com/watch?v=example2"
+        },
+        {
+          "title": "Adding Processing Nodes",
+          "content": "Nodes are the building blocks of your video processing pipeline. Learn how to add, connect, and configure different types of nodes for various effects and transformations.",
+          "image": "tutorials/adding-nodes.jpg",
+          "youtubeVideo": "https://www.youtube.com/watch?v=example3"
+        }
+      ],
+      "conclusion": "Congratulations! You've successfully created your first video processing workflow in FFStudio. This foundation will serve you well as you explore more advanced features and techniques."
+    },
+    {
+      "id": "video-compression",
+      "title": "Video Compression Techniques",
+      "description": "Optimize your video files without sacrificing quality using FFStudio's compression nodes.",
+      "category": "Advanced Techniques",
+      "readTime": "15 min read",
+      "date": "May 2, 2023",
+      "icon": "fas fa-compress-arrows-alt",
+      "image": "",
+      "tags": ["compression", "optimization", "quality"],
+      "intro": "Video compression is essential for efficient storage and streaming. This tutorial will teach you how to achieve the perfect balance between file size and video quality using FFStudio's advanced compression tools.",
+      "sections": [
+        {
+          "title": "Understanding Video Compression",
+          "content": "Learn the fundamentals of video compression, including codecs, bitrates, and quality settings. Understanding these concepts will help you make informed decisions about your compression workflow.",
+          "image": "tutorials/compression-basics.jpg",
+          "youtubeVideo": "https://www.youtube.com/watch?v=compression1"
+        },
+        {
+          "title": "Setting Up Compression Nodes",
+          "content": "Configure FFStudio's compression nodes for optimal results. We'll explore different compression algorithms and their specific use cases.",
+          "image": "tutorials/compression-nodes.jpg",
+          "youtubeVideo": "https://www.youtube.com/watch?v=compression2"
+        },
+        {
+          "title": "Quality vs. File Size Optimization",
+          "content": "Master the art of balancing quality and file size. Learn techniques to maintain visual quality while achieving significant file size reductions.",
+          "image": "tutorials/quality-optimization.jpg",
+          "youtubeVideo": "https://www.youtube.com/watch?v=compression3"
+        }
+      ],
+      "conclusion": "You now have the knowledge and tools to create efficient, high-quality video compression workflows. Apply these techniques to optimize your video projects for various platforms and requirements."
+    },
+    {
+      "id": "watermarks",
+      "title": "Adding Watermarks with Ease",
+      "description": "Learn how to add and customize watermarks to protect your video content.",
+      "category": "Workflow Examples",
+      "readTime": "8 min read",
+      "date": "June 10, 2023",
+      "icon": "fas fa-tint",
+      "image": "tutorials/watermarks.jpg",
+      "tags": ["watermark", "protection", "branding"],
+      "content": "Protect your content with professional watermarks..."
+    },
+    {
+      "id": "batch-processing",
+      "title": "Batch Processing Multiple Videos",
+      "description": "Process hundreds of videos automatically with FFStudio's batch processing capabilities.",
+      "category": "Advanced Techniques",
+      "readTime": "12 min read",
+      "date": "July 5, 2023",
+      "icon": "fas fa-layer-group",
+      "image": "tutorials/batch.jpg",
+      "tags": ["batch", "automation", "efficiency"],
+      "content": "Save time by processing multiple videos at once..."
+    },
+    {
+      "id": "color-grading",
+      "title": "Professional Color Grading",
+      "description": "Achieve cinematic looks with advanced color grading techniques in FFStudio.",
+      "category": "Advanced Techniques",
+      "readTime": "20 min read",
+      "date": "August 12, 2023",
+      "icon": "fas fa-palette",
+      "image": "tutorials/color.jpg",
+      "tags": ["color", "grading", "cinematic"],
+      "content": "Transform your videos with professional color grading..."
+    },
+    {
+      "id": "audio-sync",
+      "title": "Perfect Audio-Video Synchronization",
+      "description": "Keep your audio and video perfectly synchronized using FFStudio's sync tools.",
+      "category": "Workflow Examples",
+      "readTime": "10 min read",
+      "date": "September 8, 2023",
+      "icon": "fas fa-volume-up",
+      "image": "tutorials/audio-sync.jpg",
+      "tags": ["audio", "sync", "timing"],
+      "content": "Ensure perfect synchronization between audio and video..."
+    }
+  ],
+  "categories": [
+    "All Tutorials",
+    "Getting Started",
+    "Advanced Techniques",
+    "Workflow Examples"
+  ]
+}

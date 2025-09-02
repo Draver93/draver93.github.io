@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Reader - FFStudio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tutorial-reader.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-film"></i>
+                    <span>FFStudio</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#tutorials">Tutorials</a></li>
+                        <li><a href="index.html#downloads">Download</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tutorial Content -->
+    <main class="tutorial-content">
+        <div class="container">
+            <!-- Back to Tutorials Button -->
+            <div class="back-to-tutorials">
+                <a href="index.html#tutorials" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Tutorials
+                </a>
+            </div>
+
+            <!-- Tutorial Header -->
+            <div class="tutorial-header" id="tutorial-header">
+                <!-- Content will be loaded here -->
+            </div>
+
+            <!-- Tutorial Body -->
+            <div class="tutorial-body" id="tutorial-body">
+                <!-- Content will be loaded here -->
+            </div>
+
+            <!-- Tutorial Navigation -->
+            <div class="tutorial-navigation">
+                <button class="btn btn-secondary" id="prev-tutorial" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous Tutorial
+                </button>
+                <button class="btn btn-primary" id="next-tutorial">
+                    Next Tutorial <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; copyright Placeholder</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tutorial-reader.js"></script>
+    <script src="js/content-loader.js"></script>
+</body>
+</html>
