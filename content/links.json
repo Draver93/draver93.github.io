@@ -28,9 +28,9 @@
     "eula": ""
   },
   "downloads": {
-    "windows": "https://sourceforge.net/projects/ff-studio/files/v0.1.1-alpha/ffstudio_0.1.1-1_amd64.exe/download",
+    "windows": "https://sourceforge.net/projects/ff-studio/files/v0.1.2-alpha/ffstudio_0.1.2-1_amd64.exe/download",
     "macos": "",
-    "linux": "https://sourceforge.net/projects/ff-studio/files/v0.1.1-alpha/ffstudio_0.1.1-1_amd64.deb/download",
+    "linux": "https://sourceforge.net/projects/ff-studio/files/v0.1.2-alpha/ffstudio_0.1.2-1_amd64.deb/download",
     "android": ""
   },
   "tutorials": {
