@@ -1,41 +1,44 @@
 {
   "tutorials": [
     {
-      "id": "getting-started",
-      "title": "Getting Started with FFStudio",
-      "description": "Learn the basics of the interface and create your first video processing workflow.",
+      "id": "introduction",
+      "title": "Introduction to FFStudio",
+      "description": "See how FFStudio brings the full power of FFmpeg into a visual graph system for media engineers and developers.",
       "category": "Getting Started",
-      "readTime": "10 min read",
-      "date": "April 15, 2023",
-      "icon": "fas fa-play-circle",
+      "readTime": "8 min read",
+      "date": "April 5, 2025",
+      "icon": "fas fa-project-diagram",
       "image": "tutorials/getting-started.png",
-      "tags": ["beginner", "interface", "workflow"],
-      "intro": "Welcome to FFStudio! This comprehensive guide will walk you through the essential concepts and help you create your first video processing workflow. Whether you're new to video editing or an experienced professional, this tutorial will get you up and running quickly.",
+      "tags": ["ffmpeg", "developers", "media", "workflow"],
+      "intro": "FFmpeg is the foundation of modern media processing. It powers transcoding farms, streaming services, broadcast automation, and countless editing pipelines. But building and maintaining large, reliable FFmpeg workflows often means juggling complex commands, testing variations, and dealing with long scripts. FFStudio was created to change that — a graph-based interface that exposes *all* of FFmpeg, while giving engineers clarity, flexibility, and speed.",
       "sections": [
         {
-          "title": "Understanding the Interface",
-          "content": "FFStudio features an intuitive node-based interface that makes complex video processing simple and visual. The main workspace is divided into several key areas that work together seamlessly.",
-          "image": "tutorials/getting-started.png"
+          "title": "The Challenge of CLI Workflows",
+          "content": "Here’s a typical command you might use in FFmpeg:\n\n```bash ffmpeg -i input.mp4 -i logo.png -filter_complex \"[0:v]scale=1280:720[v0]; [v0][1:v]overlay=10:10:enable='between(t,0,20)'[vout]\" -map \"[vout]\" -map 0:a:0 -c:v libx264 -b:v 2500k -c:a aac -b:a 128k output.mp4```\n\nThis one command scales a video to 720p, overlays a logo for the first 20 seconds, keeps the first audio track, and encodes with H.264 + AAC. It’s powerful — but it’s also hard to read, debug, or extend when your pipeline grows to multiple filters, mappings, or outputs.",
+          "image": "tutorials/cli-long-command.png" 
         },
         {
-          "title": "Understanding the Interface",
-          "content": "FFStudio features an intuitive node-based interface that makes complex video processing simple and visual. The main workspace is divided into several key areas that work together seamlessly.",
-          "youtubeVideo": "https://www.youtube.com/watch?v=example1"
+          "title": "The FFStudio Approach",
+          "content": "In FFStudio, the same operation is built visually:\n- **Input Node** → your video file.\n- **Filter Nodes** → scale, then overlay.\n- **Encoder Nodes** → H.264 for video, AAC for audio.\n- **Output Node** → final MP4.\n\nInstead of parsing a long string, you *see* the workflow as a connected graph. Each node is configured with the same options FFmpeg exposes, but the structure is clear, reusable, and easy to extend.",
+          "image": "tutorials/graph-scale-overlay.png"
         },
         {
-          "title": "Creating Your First Workflow",
-          "content": "Let's start by creating a simple video processing workflow. We'll begin with basic operations and gradually build up to more complex tasks.",
-          "image": "tutorials/first-workflow.jpg",
-          "youtubeVideo": "https://www.youtube.com/watch?v=example2"
+          "title": "Parsing FFmpeg Into Nodes",
+          "content": "FFStudio doesn’t just wrap a single FFmpeg binary. It understands *your* FFmpeg build. By running commands like `ffmpeg -h full` or `ffmpeg -h encoder=libx264`, FFStudio parses the documentation directly from FFmpeg’s self-describing preprocessor system. That means:\n\n- Every codec, filter, muxer, and option in your FFmpeg build is discoverable.\n- Node inputs, outputs, and parameters are generated automatically.\n- Custom FFmpeg builds with proprietary or experimental modules become first-class citizens in the UI.\n\nThis way, FFStudio stays in sync with FFmpeg — no feature hidden, no lock-in.",
+          "image": "tutorials/ffmpeg-parsing.png"
         },
         {
-          "title": "Adding Processing Nodes",
-          "content": "Nodes are the building blocks of your video processing pipeline. Learn how to add, connect, and configure different types of nodes for various effects and transformations.",
-          "image": "tutorials/adding-nodes.jpg",
-          "youtubeVideo": "https://www.youtube.com/watch?v=example3"
+          "title": "Bring Your Own FFmpeg",
+          "content": "You’re not limited to the version of FFmpeg bundled with the app. In FFStudio, you specify the path to the binary and its environment variables (like shared libraries). FFStudio then parses that binary and exposes all of its capabilities. For developers working with patched builds, new filters, or hardware acceleration modules, this means total freedom. Your custom FFmpeg becomes fully usable in a visual environment — no compromises.",
+          "image": "tutorials/custom-ffmpeg.png"
+          
+        },
+        {
+          "title": "Who Benefits?",
+          "content": "FFStudio is designed for:\n- **Media engineers** building and maintaining transcoding farms.\n- **Developers** integrating FFmpeg into larger processing pipelines.\n- **Researchers & enthusiasts** experimenting with new codecs or custom filters.\n\nInstead of wrestling with giant command strings, you design, save, and share workflows as visual graphs — reproducible and maintainable. FFStudio is not a toy GUI; it’s a productivity layer for raw FFmpeg."
         }
       ],
-      "conclusion": "Congratulations! You've successfully created your first video processing workflow in FFStudio. This foundation will serve you well as you explore more advanced features and techniques."
+      "conclusion": "FFStudio combines the raw power of FFmpeg with the clarity of a graph-based workflow. By exposing every feature of your chosen FFmpeg build, it removes the guesswork and speeds up development. In the next tutorial, we’ll get hands-on: exploring the interface and creating your first workflow."
     },
     {
       "id": "video-compression",
