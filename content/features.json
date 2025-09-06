@@ -3,65 +3,65 @@
     {
       "id": "visual-graphs",
       "title": "Visual Graph Editor",
-      "description": "Build ffmpeg pipelines visually by connecting nodes for inputs, filters, encoders, and outputs. Graphs map 1:1 to real ffmpeg commands — no hidden layers.",
+      "description": "Build complete FFmpeg pipelines visually. Connect inputs, filters, encoders, and outputs as nodes—each mapping directly to real FFmpeg commands.",
       "icon": "fas fa-project-diagram",
-      "category": "workflow",
+      "category": "Workflow",
       "highlight": true
     },
     {
       "id": "custom-builds",
       "title": "Custom FFmpeg Builds",
-      "description": "Point FFStudio to any ffmpeg binary. The app parses it automatically, exposing your custom filters, codecs, and muxers as editable nodes.",
+      "description": "Point to any `ffmpeg` binary. FFStudio auto-detects and exposes your custom filters, codecs, and muxers as configurable nodes.",
       "icon": "fas fa-cog",
-      "category": "flexibility",
+      "category": "Flexibility",
       "highlight": true
     },
     {
       "id": "segment-preview",
       "title": "Segment Preview Player",
-      "description": "Preview single frames or short timeline ranges instead of full renders. Cached results speed up debugging and iterative development.",
+      "description": "Instantly render and inspect a single frame or a timeline range. Cached previews speed up tuning without full transcoding.",
       "icon": "fas fa-play-circle",
-      "category": "workflow",
+      "category": "Workflow",
       "highlight": true
     },
     {
       "id": "detailed-logs",
       "title": "Integrated Logs",
-      "description": "Access ffmpeg’s raw logs directly in the UI. Errors, warnings, and debug output are color-coded, exportable, and tied to your workflows.",
+      "description": "Step through FFmpeg’s own logs in-app. Color-coded entries, exportable output, and error flags keep you in control.",
       "icon": "fas fa-terminal",
-      "category": "debugging",
+      "category": "Debugging",
       "highlight": false
     },
     {
       "id": "filter-graph",
       "title": "Full Filter Graph Support",
-      "description": "Explore and configure every filter available in your build, including advanced audio/video chains with conditional expressions and metadata routing.",
+      "description": "Access the full power of FFmpeg filters—including complex chains, conditional logic, and metadata routing—all visually editable.",
       "icon": "fas fa-filter",
-      "category": "flexibility",
+      "category": "Flexibility",
       "highlight": false
     },
     {
       "id": "workflow-library",
       "title": "Reusable Workflow Library",
-      "description": "Save, export, and share workflows as JSON. Use built-in example graphs to jumpstart new projects or maintain consistency across teams.",
+      "description": "Save, export, and share workflows as JSON. Kickstart new projects from built-in examples or maintain cross-team consistency.",
       "icon": "fas fa-folder-open",
-      "category": "workflow",
+      "category": "Workflow",
       "highlight": false
     },
     {
       "id": "format-support",
       "title": "Universal Format Support",
-      "description": "Read and write virtually any format supported by ffmpeg — from common MP4s to broadcast containers and experimental codecs.",
+      "description": "Handle nearly any media format or container supported by FFmpeg—from common to broadcast-grade or experimental codecs.",
       "icon": "fas fa-file-video",
-      "category": "compatibility",
+      "category": "Compatibility",
       "highlight": false
     },
     {
       "id": "hardware-accel",
       "title": "Hardware Acceleration",
-      "description": "Leverage NVENC, QuickSync, VAAPI, or other hardware backends in your ffmpeg build for faster encoding and decoding.",
+      "description": "Enable NVENC, QuickSync, VAAPI, or other GPU-accelerated encoding/decoding via your FFmpeg build for serious throughput gains.",
       "icon": "fas fa-microchip",
-      "category": "performance",
+      "category": "Performance",
       "highlight": false
     }
   ]
