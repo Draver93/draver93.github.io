@@ -6,7 +6,7 @@
       "description": "See how FFStudio brings the full power of FFmpeg into a visual graph system for media engineers and developers.",
       "category": "Getting Started",
       "readTime": "8 min read",
-      "date": "April 5, 2025",
+      "date": "September 5, 2025",
       "icon": "fas fa-project-diagram",
       "image": "tutorials/getting-started.png",
       "tags": ["ffmpeg", "developers", "media", "workflow"],
@@ -41,90 +41,210 @@
       "conclusion": "FFStudio combines the raw power of FFmpeg with the clarity of a graph-based workflow. By exposing every feature of your chosen FFmpeg build, it removes the guesswork and speeds up development. In the next tutorial, we’ll get hands-on: exploring the interface and creating your first workflow."
     },
     {
-      "id": "video-compression",
-      "title": "Video Compression Techniques",
-      "description": "Optimize your video files without sacrificing quality using FFStudio's compression nodes.",
-      "category": "Advanced Techniques",
+      "id": "ui-and-functionality",
+      "title": "Navigating the FFStudio Interface",
+      "description": "A deep dive into FFStudio’s UI: top bar, workflow sidebar, graph editor, player, and logs. Learn how to use every panel, menu, and button.",
+      "category": "Getting Started",
       "readTime": "15 min read",
-      "date": "May 2, 2023",
-      "icon": "fas fa-compress-arrows-alt",
-      "image": "",
-      "tags": ["compression", "optimization", "quality"],
-      "intro": "Video compression is essential for efficient storage and streaming. This tutorial will teach you how to achieve the perfect balance between file size and video quality using FFStudio's advanced compression tools.",
+      "date": "September 6, 2025",
+      "icon": "fas fa-window-maximize",
+      "image": "tutorials/ui-overview-cover.png",
+      "tags": ["interface", "graph", "player", "logs", "workflow"],
+      "intro": "FFStudio is built for power and consistency. Instead of constantly changing layouts, the interface follows a fixed structure with a top bar, a right sidebar, and three core panels: Graph, Player, and Logs. Once you understand how these pieces work together, you’ll navigate complex workflows with ease.",
       "sections": [
         {
-          "title": "Understanding Video Compression",
-          "content": "Learn the fundamentals of video compression, including codecs, bitrates, and quality settings. Understanding these concepts will help you make informed decisions about your compression workflow.",
-          "image": "tutorials/compression-basics.jpg",
-          "youtubeVideo": "https://www.youtube.com/watch?v=compression1"
+          "title": "Top Bar & Sidebar: The Core Layout",
+          "content": "At the top, FFStudio always shows three tabs: **Graph**, **Player**, and **Logs**. These define your main workflow stages.\n\nOn the right, the **Workflows sidebar** lists all your saved workflows. Each workflow card shows:\n- Name, creation date, and FFmpeg binary path\n- Four actions: **Edit**, **Save**, **Export**, **Delete**\n\nAbove the list is **New Workflow**, and at the very bottom is the **Execute Graph** button — the main trigger for running your workflow. The sidebar can be hidden using the arrow next to 'Workflows'.\n\nThis fixed layout ensures you always know where things are, no matter how complex your project becomes.",
+          "image": "tutorials/ui-layout.png"
         },
         {
-          "title": "Setting Up Compression Nodes",
-          "content": "Configure FFStudio's compression nodes for optimal results. We'll explore different compression algorithms and their specific use cases.",
-          "image": "tutorials/compression-nodes.jpg",
-          "youtubeVideo": "https://www.youtube.com/watch?v=compression2"
+          "title": "The Graph Panel",
+          "content": "The **Graph tab** is the heart of FFStudio. It uses a Litegraph-based canvas to visually build FFmpeg pipelines.\n\nKey interactions:\n- **LMB + drag** (empty space): move viewport\n- **Scroll wheel**: zoom\n- **RMB (empty space)**: open context menu with all FFmpeg nodes\n- **Double LMB (empty space)**: search node by name\n- **LMB (node)**: select\n- **LMB + drag (node)**: move\n- **RMB (node)**: open node menu (clone, delete, description, color, properties)\n- **Collapse toggle**: top-left dot on node collapses into compact view\n\nConnections are strict — you can only link compatible nodes in the correct direction. This ensures generated FFmpeg commands are always structurally valid, even if parameters are misconfigured.",
+          "image": "tutorials/ui-graph-panel.png"
         },
         {
-          "title": "Quality vs. File Size Optimization",
-          "content": "Master the art of balancing quality and file size. Learn techniques to maintain visual quality while achieving significant file size reductions.",
-          "image": "tutorials/quality-optimization.jpg",
-          "youtubeVideo": "https://www.youtube.com/watch?v=compression3"
+          "title": "The Player Panel",
+          "content": "The **Player tab** speeds up development by letting you preview workflow results without transcoding the full file.\n\nFeatures:\n- **Timeline navigation**: click to set playhead, or click+drag to create a range\n- **Segment rendering**: bottom-left green button encodes only the selected range (or a single frame if no range)\n- **Segment editing**: resize by dragging edges, move by dragging the middle, delete with the ✖ icon\n- **Viewport controls**: RMB+drag or scroll wheel to move timeline, Ctrl+Scroll to zoom\n- **Reset button** clears selection\n\nWith this, you can iterate quickly: test filters, verify overlays, and debug encoding steps before committing to full renders.",
+          "image": "tutorials/ui-player-panel.png"
+        },
+        {
+          "title": "The Logs Panel",
+          "content": "The **Logs tab** provides full transparency into what FFStudio and FFmpeg are doing.\n\nFeatures:\n- Log levels: **red (error)**, **yellow (warning)**, **gray (debug)**, **green (success)**, **blue (info)**\n- Tab highlights red when a new error arrives\n- Each log entry includes timestamp and type\n- **Export logs** button (top-right)\n- **Clear logs** button to reset view\n\nThis is where you’ll copy commands, debug workflows, and verify FFmpeg’s exact behavior.",
+          "image": "tutorials/ui-logs-panel.png"
+        },
+        {
+          "title": "Workflow Creation & Caching",
+          "content": "The first time you create a workflow with a new FFmpeg binary, FFStudio parses a large set of metadata — filters, codecs, muxers, and more. This can take time, but subsequent workflows reuse the cached data, so loading is much faster.\n\nDuring graph execution, a loading overlay appears. You can dismiss it by clicking outside the blur zone, continuing to interact with the graph and logs while transcoding runs in the background.",
+          "image": "tutorials/ui-workflow-creation.png"
+          
         }
       ],
-      "conclusion": "You now have the knowledge and tools to create efficient, high-quality video compression workflows. Apply these techniques to optimize your video projects for various platforms and requirements."
+      "conclusion": "By now, you’ve explored every permanent element of FFStudio’s interface. The top bar defines your workflow stage, the sidebar manages your projects, and the three main panels — Graph, Player, Logs — give you complete control over building, previewing, and executing pipelines. Next, we’ll dive deeper into working with nodes and constructing complex graphs."
     },
     {
-      "id": "watermarks",
-      "title": "Adding Watermarks with Ease",
-      "description": "Learn how to add and customize watermarks to protect your video content.",
-      "category": "Workflow Examples",
-      "readTime": "8 min read",
-      "date": "June 10, 2023",
-      "icon": "fas fa-tint",
-      "image": "tutorials/watermarks.jpg",
-      "tags": ["watermark", "protection", "branding"],
-      "content": "Protect your content with professional watermarks..."
+      "id": "working-with-nodes",
+      "title": "Working with Nodes in FFStudio",
+      "description": "Learn how to add, configure, and connect nodes. Master the inspector panel to unlock the full power of FFmpeg inside FFStudio.",
+      "category": "Building Workflows",
+      "readTime": "18 min read",
+      "date": "September 6, 2025",
+      "icon": "fas fa-project-diagram",
+      "image": "tutorials/nodes-cover.png",
+      "tags": ["nodes", "graph", "inspector", "workflow"],
+      "intro": "Nodes are the building blocks of FFStudio workflows. Each node represents an FFmpeg component — an input, a filter, a codec, or an output. By combining nodes visually, you construct complete transcoding pipelines without writing raw commands.",
+      "sections": [
+        {
+          "title": "Adding Nodes",
+          "content": "There are two main ways to add nodes:\n\n- **Right-click context menu**: RMB on empty space → choose from categorized list of FFmpeg components (inputs, filters, codecs, muxers, etc.)\n- **Search menu**: Double LMB on empty space → type node name and insert instantly\n\nNodes are auto-validated, meaning only compatible connections are allowed.",
+          "image": "tutorials/nodes-adding.png"
+        },
+        {
+          "title": "Connecting Nodes",
+          "content": "Each node exposes **inputs and outputs** represented by connection points. FFStudio enforces correct wiring:\n- Filter, Inputs and Outputs can be connected only to Stream Selector\n- Inputs allow only demuxers and decoders. \n- Outputs allow only muxers and encoders. \n- Streams flow left-to-right (inputs → filters → encoders → outputs)\n\nDrag from one node’s output to another’s input to link them. Invalid links are automatically rejected.",
+          "image": "tutorials/nodes-connecting.png"
+        },
+        {
+          "title": "Inspector Panel",
+          "content": "When you select a node, its full set of parameters is displayed in the **Inspector panel**. Parameters are parsed directly from the chosen FFmpeg binary — meaning custom builds with extra codecs or filters are fully supported.\n\n- Each field corresponds to an FFmpeg flag\n- Tooltips include short descriptions (from FFmpeg’s self-doc system)\n- Numeric, boolean, dropdown, and text fields match expected parameter types\n\nThis makes advanced FFmpeg options accessible without memorizing CLI syntax.",
+          "image": "tutorials/nodes-inspector.png"
+        },
+        {
+          "title": "Node Actions",
+          "content": "RMB on a node opens its context menu. Common actions:\n- **Description**: Shows FFmpeg documentation for this node\n- **Clone**: Duplicates the node with all current settings\n- **Delete**: Removes the node\n- **Color**: Assigns a custom color for easier grouping\n\nNodes can also be collapsed via the dot in the top-left corner to save space on large graphs.",
+          "image": "tutorials/nodes-actions.png"
+         
+        },
+        {
+          "title": "Inputs and Outputs",
+          "content": "Special nodes define workflow boundaries:\n\n- **Input Node (IN)**: Defines media sources (files, streams, images, etc.)\n- **Output Node (OUT)**: Defines final file path, format, and muxing options\n\nEach workflow must have at least one IN and one OUT node to be valid. Multiple IN/OUT nodes are supported for complex graphs.",
+          "image": "tutorials/nodes-in-out.png"
+        },
+        {
+          "title": "Practical Example",
+          "content": "Here’s a simple but common pipeline:\n\n1. Add **IN node** → select video file\n2. Add **Scale filter** → set width=1280, height=720\n3. Add **libx264 encoder** → configure bitrate, preset, profile\n4. Add **aac encoder** for audio\n5. Connect both to **OUT node** → set output file path\n\nThe graph now represents a complete transcoding workflow equivalent to a multi-line FFmpeg CLI command — but fully visual and editable.",
+          "image": "tutorials/nodes-example.png"
+        }
+      ],
+      "conclusion": "Nodes give you fine-grained control over every part of your pipeline, from filters to codecs. With the inspector, you can configure parameters that normally require deep FFmpeg knowledge — all visually accessible. Next, we’ll look at how to optimize workflows with the Player tab and reusable graph templates."
     },
     {
-      "id": "batch-processing",
-      "title": "Batch Processing Multiple Videos",
-      "description": "Process hundreds of videos automatically with FFStudio's batch processing capabilities.",
-      "category": "Advanced Techniques",
+      "id": "player-and-debugging",
+      "title": "Debugging Workflows with the Player",
+      "description": "Learn how to use FFStudio’s Player tab to preview and debug your workflows without full renders.",
+      "category": "Building Workflows",
       "readTime": "12 min read",
-      "date": "July 5, 2023",
-      "icon": "fas fa-layer-group",
-      "image": "tutorials/batch.jpg",
-      "tags": ["batch", "automation", "efficiency"],
-      "content": "Save time by processing multiple videos at once..."
+      "date": "September 6, 2025",
+      "icon": "fas fa-play-circle",
+      "image": "tutorials/player-cover.png",
+      "tags": ["player", "preview", "debugging", "workflow"],
+      "intro": "Transcoding a full video just to test one filter wastes time. That’s why FFStudio includes the **Player tab** — a lightweight preview system for debugging. You can render just a frame or a short segment, verify results, and adjust your graph until it’s perfect.",
+      "sections": [
+        {
+          "title": "Switching to the Player Tab",
+          "content": "Once your graph is complete, click the **Player tab** in the top bar. This switches the workspace from node editing to a preview-focused interface.\n\nThe Player is simple but powerful: it gives you playback controls, a timeline, and the ability to transcode just selected portions of your workflow.",
+          "image": "tutorials/player-tab.png"
+        },
+        {
+          "title": "Navigating the Timeline",
+          "content": "The timeline lets you choose where to preview:\n- **Click LMB**: Set a playhead position\n- **Click + drag**: Define a range selection\n- **RMB + drag**: Move the timeline viewport\n- **Scroll**: Scroll through timeline\n- **Ctrl + Scroll**: Zoom timeline\n\nYou can reposition or resize a range by dragging its edges, or move the entire selection by dragging the middle.",
+          "image": "tutorials/player-timeline.png"
+        },
+        {
+          "title": "Rendering Segments",
+          "content": "Instead of transcoding a full workflow, you can render just what’s selected:\n- **Green button (bottom-left)**: Transcode current selection\n  - Single frame if no range\n  - Full segment if a range is selected\n- **Red button**: Reset and clear the selection\n\nThis gives you near-instant feedback to confirm filters, overlays, and encoders are behaving as expected.",
+          "image": "tutorials/player-render.png"
+        },
+        {
+          "title": "Managing Segments",
+          "content": "Rendered segments appear on the timeline as overlays. Each has its own ✖ icon in the corner for quick removal.\n\nHovering over a segment reveals controls to delete or adjust it. You can preview multiple ranges in one debugging session, helping you validate different parts of the workflow without restarting.",
+          "image": "tutorials/player-segments.png"
+        },
+        {
+          "title": "Caching Previews",
+          "content": "Once a segment has been rendered, it is cached. Replaying that range does not require re-transcoding, making it faster to recheck your adjustments. When you change the graph significantly, cached segments are invalidated automatically.",
+          "image": "tutorials/player-cache.png"
+        },
+        {
+          "title": "Debugging Workflow Issues",
+          "content": "The Player is tightly integrated with the **Logs tab**:\n- Any errors during partial rendering immediately highlight the Logs tab in red\n- You can switch back and forth between preview and logs to refine your graph\n\nThis workflow shortens the edit–test–debug loop dramatically, especially for complex pipelines.",
+          "image": "tutorials/player-debug.png"
+        }
+      ],
+      "conclusion": "With the Player, you can preview workflows efficiently, testing individual filters or sections without waiting for a full encode. Combined with the Logs tab, this creates a powerful debugging loop. In the next tutorial, we’ll look at advanced topics — like using custom FFmpeg builds to extend FFStudio with your own filters and codecs."
     },
     {
-      "id": "color-grading",
-      "title": "Professional Color Grading",
-      "description": "Achieve cinematic looks with advanced color grading techniques in FFStudio.",
+      "id": "custom-ffmpeg-builds",
+      "title": "Using Custom FFmpeg Builds",
+      "description": "Learn how to connect FFStudio with your own custom-compiled ffmpeg binaries, including extra filters, codecs, or muxers.",
       "category": "Advanced Techniques",
-      "readTime": "20 min read",
-      "date": "August 12, 2023",
-      "icon": "fas fa-palette",
-      "image": "tutorials/color.jpg",
-      "tags": ["color", "grading", "cinematic"],
-      "content": "Transform your videos with professional color grading..."
+      "readTime": "8 min read",
+      "date": "September 6, 2025",
+      "icon": "fas fa-cogs",
+      "image": "tutorials/custom-ffmpeg-cover.png",
+      "tags": ["advanced", "ffmpeg", "custom", "filters", "codecs"],
+      "intro": "One of FFStudio’s most powerful features is the ability to work with **any ffmpeg binary you provide**. This is essential for developers and engineers who compile custom builds with experimental filters, hardware acceleration, or proprietary codecs. Instead of locking you into a predefined ffmpeg, FFStudio adapts dynamically to your binary and exposes its full functionality in the node graph.",
+      "sections": [
+        {
+          "title": "Why Use a Custom Build?",
+          "content": "The official ffmpeg releases are powerful, but many production workflows rely on custom builds that include:\n- Hardware-specific acceleration (e.g., CUDA, NVENC, QuickSync)\n- Proprietary or experimental codecs\n- Custom filters or muxers not available in the stock build\n\nFFStudio makes it possible to load these builds directly and use their features in the graph interface."
+        },
+        {
+          "title": "Setting the ffmpeg Path",
+          "content": "Every workflow in FFStudio has a configurable ffmpeg path:\n- In the **Workflows sidebar**, locate your workflow entry\n- Enter the full path to your custom `ffmpeg` binary\n- Optionally set additional environment variables, such as `LD_LIBRARY_PATH` for shared libraries\n\nThis ensures that all parsing, node generation, and execution are based on *your* binary.",
+          "image": "tutorials/custom-ffmpeg-path.png"
+        },
+        {
+          "title": "Automatic Parsing of Features",
+          "content": "Once a custom binary is set, FFStudio runs an internal parsing step:\n- Executes `ffmpeg -h full` to extract all supported filters, codecs, and muxers\n- Builds nodes dynamically based on the detected options\n- Populates inspector panels with the correct flags, descriptions, and defaults\n\nThis guarantees that you see the exact capabilities of your build — nothing hidden, nothing missing.",
+          "image": "tutorials/custom-ffmpeg-parse.png"
+        },
+        {
+          "title": "Working With Custom Filters",
+          "content": "If your build includes extra filters, they will appear in the node search context. You can:\n- Search by filter name (double LMB on empty canvas)\n- Inspect properties exposed from your binary\n- Connect them into your graph just like stock nodes\n\nFFStudio does not distinguish between stock and custom filters — they all work the same.",
+          "image": "tutorials/custom-ffmpeg-filters.png"
+        },
+        {
+          "title": "Caching for Faster Reloads",
+          "content": "The first time you point FFStudio to a new ffmpeg binary, parsing can take time because of the large amount of configuration data. However, once parsed, the results are cached. Switching to the same binary later will be nearly instant."
+        }
+      ],
+      "conclusion": "By supplying your own ffmpeg builds, you gain full control over your workflow environment. FFStudio adapts to whatever features your binary supports — from cutting-edge filters to proprietary codecs. This makes it an ideal tool for developers, media engineers, and anyone working at the frontier of video processing."
     },
     {
-      "id": "audio-sync",
-      "title": "Perfect Audio-Video Synchronization",
-      "description": "Keep your audio and video perfectly synchronized using FFStudio's sync tools.",
-      "category": "Workflow Examples",
-      "readTime": "10 min read",
-      "date": "September 8, 2023",
-      "icon": "fas fa-volume-up",
-      "image": "tutorials/audio-sync.jpg",
-      "tags": ["audio", "sync", "timing"],
-      "content": "Ensure perfect synchronization between audio and video..."
+      "id": "best-practices-graphs",
+      "title": "Best Practices & Reusable Graphs",
+      "description": "Learn how to keep your graphs organized, readable, and reusable across different workflows.",
+      "category": "Building Workflows",
+      "readTime": "9 min read",
+      "date": "September 7, 2025",
+      "icon": "fas fa-project-diagram",
+      "image": "tutorials/best-practices-cover.png",
+      "tags": ["workflow", "organization", "examples", "sharing"],
+      "intro": "As workflows grow more complex, managing them effectively becomes critical. FFStudio provides several features to keep your node graphs organized, readable, and reusable. In this tutorial, you’ll learn how to apply best practices for workflow design, and how to take advantage of the built-in example library.",
+      "sections": [
+        {
+          "title": "Organizing Large Graphs",
+          "content": "When graphs become crowded, readability suffers. Here are techniques to keep things clean:\n- **Node Groups**: Use grouping or clustering to isolate sections of the workflow (e.g., filters vs encoders)\n- **Colors**: Assign colors to nodes for visual categorization\n- **Collapsed Nodes**: Click the dot at the top-left of a node to collapse it into a compact form when you don’t need to tweak its settings\n\nThese practices make it easier to revisit a workflow later, or to share it with teammates.",
+          "image": "tutorials/best-practices-organize.png"
+        },
+        {
+          "title": "Working With the Example Library",
+          "content": "FFStudio comes with a large library of ready-to-use graph examples:\n- Browse and drag/drop prebuilt workflows\n- Adapt them by replacing inputs/outputs\n- Learn by studying how they are structured\n\nThis is the fastest way to get started with advanced pipelines without memorizing every ffmpeg flag.",
+          "image": "tutorials/best-practices-library.png"
+        },
+        {
+          "title": "Sharing and Exporting Workflows",
+          "content": "Every workflow can be exported as JSON. Share them with others or keep them under version control for reproducibility.\n\nTo export:\n- Open the **Workflows sidebar**\n- Click the **Export** button for your workflow\n- Save the JSON file\n\nYour colleagues can import the file to instantly recreate the same graph on their machine.",
+          "image": "tutorials/best-practices-export.png"
+        }
+      ],
+      "conclusion": "By applying best practices — grouping, annotating, reusing examples, and exporting workflows — you’ll get the most out of FFStudio. Complex pipelines become manageable, shareable, and easier to maintain. This marks the end of the core tutorial series, but you can now explore advanced graphs and contribute to the example library."
     }
   ],
   "categories": [
     "All Tutorials",
     "Getting Started",
+    "Building Workflows",
     "Advanced Techniques",
     "Workflow Examples"
   ]

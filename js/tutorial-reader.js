@@ -119,6 +119,7 @@ class TutorialReader {
         
         // Add introduction
         if (tutorial.intro) {
+            tutorial.intro = tutorial.intro.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
             bodyContent += `
                 <div class="tutorial-intro">
                     <h2>Introduction</h2>

@@ -1,57 +1,65 @@
 {
   "features": [
     {
-      "id": "node-based",
-      "title": "Node-Based Workflow",
-      "description": "Create complex video processing pipelines with a simple drag-and-drop interface.",
+      "id": "visual-graphs",
+      "title": "Visual Graph Editor",
+      "description": "Build ffmpeg pipelines visually by connecting nodes for inputs, filters, encoders, and outputs. Graphs map 1:1 to real ffmpeg commands — no hidden layers.",
       "icon": "fas fa-project-diagram",
-      "category": "core",
+      "category": "workflow",
       "highlight": true
     },
     {
-      "id": "Custom-ffmpeg",
-      "title": "Works With Your Custom FFmpeg Build",
-      "description": "FFStudio auto-detects your FFmpeg build, including custom filters, and generates a visual interface tailored to its features.",
+      "id": "custom-builds",
+      "title": "Custom FFmpeg Builds",
+      "description": "Point FFStudio to any ffmpeg binary. The app parses it automatically, exposing your custom filters, codecs, and muxers as editable nodes.",
       "icon": "fas fa-cog",
-      "category": "core",
+      "category": "flexibility",
       "highlight": true
     },
     {
-      "id": "real-time-preview",
-      "title": "Real-Time Preview",
-      "description": "See changes instantly with our integrated video player and timeline.",
-      "icon": "fas fa-sliders-h",
-      "category": "core",
+      "id": "segment-preview",
+      "title": "Segment Preview Player",
+      "description": "Preview single frames or short timeline ranges instead of full renders. Cached results speed up debugging and iterative development.",
+      "icon": "fas fa-play-circle",
+      "category": "workflow",
       "highlight": true
     },
     {
-      "id": "ffmpeg-powered",
-      "title": "FFmpeg Powered",
-      "description": "Leverage the full power of FFmpeg without needing to learn command line syntax.",
-      "icon": "fas fa-bolt",
-      "category": "core",
+      "id": "detailed-logs",
+      "title": "Integrated Logs",
+      "description": "Access ffmpeg’s raw logs directly in the UI. Errors, warnings, and debug output are color-coded, exportable, and tied to your workflows.",
+      "icon": "fas fa-terminal",
+      "category": "debugging",
       "highlight": false
     },
     {
-      "id": "advanced-filters",
-      "title": "Advanced Filters",
-      "description": "Apply professional-grade video and audio filters with precision control.",
+      "id": "filter-graph",
+      "title": "Full Filter Graph Support",
+      "description": "Explore and configure every filter available in your build, including advanced audio/video chains with conditional expressions and metadata routing.",
       "icon": "fas fa-filter",
-      "category": "advanced",
+      "category": "flexibility",
+      "highlight": false
+    },
+    {
+      "id": "workflow-library",
+      "title": "Reusable Workflow Library",
+      "description": "Save, export, and share workflows as JSON. Use built-in example graphs to jumpstart new projects or maintain consistency across teams.",
+      "icon": "fas fa-folder-open",
+      "category": "workflow",
       "highlight": false
     },
     {
       "id": "format-support",
       "title": "Universal Format Support",
-      "description": "Support for all major video, audio, and image formats.",
+      "description": "Read and write virtually any format supported by ffmpeg — from common MP4s to broadcast containers and experimental codecs.",
       "icon": "fas fa-file-video",
       "category": "compatibility",
       "highlight": false
     },
     {
-      "id": "gpu-acceleration",
-      "title": "GPU Acceleration",
-      "description": "Harness the power of your graphics card for faster rendering.",
+      "id": "hardware-accel",
+      "title": "Hardware Acceleration",
+      "description": "Leverage NVENC, QuickSync, VAAPI, or other hardware backends in your ffmpeg build for faster encoding and decoding.",
       "icon": "fas fa-microchip",
       "category": "performance",
       "highlight": false
