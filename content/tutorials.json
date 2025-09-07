@@ -239,6 +239,101 @@
         }
       ],
       "conclusion": "By applying best practices — grouping, annotating, reusing examples, and exporting workflows — you’ll get the most out of FFStudio. Complex pipelines become manageable, shareable, and easier to maintain. This marks the end of the core tutorial series, but you can now explore advanced graphs and contribute to the example library."
+    },
+    {
+      "id": "basic-transcoding",
+      "title": "Basic Transcoding Workflow",
+      "description": "Learn how to set up your first simple video transcoding pipeline in FFStudio.",
+      "category": "Workflow Examples",
+      "readTime": "8 min read",
+      "date": "September 7, 2025",
+      "icon": "fas fa-exchange-alt",
+      "image": "tutorials/basic-transcoding.png",
+      "tags": ["beginner", "workflow", "transcoding"],
+      "intro": "In this tutorial, we’ll build a minimal video processing workflow: take an input file, select the correct stream, encode it, and save it to MP4. This is the simplest way to understand how FFStudio translates your graph into a working ffmpeg command.",
+      "sections": [
+        {
+          "title": "Step 1: Create a New Workflow",
+          "content": "Open FFStudio and click **New Workflow** in the right sidebar. Name your workflow and make sure your default FFmpeg binary is detected. The graph canvas will now activate and you are ready to build.",
+          "image": "tutorials/basic-transcoding-step1.png"
+        },
+        {
+          "title": "Step 2: Add Global Options",
+          "content": "Right-click on the graph canvas, search for **Global Options**, and add the **-y (overwrite output)** option. This ensures ffmpeg will overwrite old output files automatically. Connect this node to the Input node in the next step.",
+          "image": "tutorials/basic-transcoding-step2.png"
+        },
+        {
+          "title": "Step 3: Add an Input Node",
+          "content": "Add an **Input** node from the context menu. This represents the media file you want to transcode. In the node’s properties, select your source file. Connect the Global Options node to the Input node.\n\n💡 **Pro Tip:** The Input node has a **Get Media Info** button. Use it to quickly fetch details about your file — stream types, IDs, codecs, and more. This helps you choose the right streams when setting up your Stream Selector.",
+          "image": "tutorials/basic-transcoding-step3.png"
+        },
+        {
+          "title": "Step 4: Add a Stream Selector Node",
+          "content": "Inputs can contain multiple streams (video, audio, subtitles). Add a **Stream Selector** node and connect the Input to it. In the properties, choose the video stream (Type = video, Id = 0).",
+          "image": "tutorials/basic-transcoding-step4.png"
+        },
+        {
+          "title": "Step 5: Add an Encoder Node",
+          "content": "Now add a **Video Encoder** node, for example **libx264**. This encoder will later be connected to the Output node to show it is used for the selected stream.",
+          "image": "tutorials/basic-transcoding-step5.png"
+        },
+        {
+          "title": "Step 6: Add and Configure the Output Node",
+          "content": "Finally, add an **Output** node. This is the hub that ties everything together. Connect the **Stream Selector** to the Output’s **stream slot**, and connect the **Encoder** to the Output’s **enc:v slot**. This makes it clear that this encoder is applied to this output. Set the destination path to an MP4 file.",
+          "image": "tutorials/basic-transcoding-step6.png"
+        },
+        {
+          "title": "Step 7: Execute the Graph",
+          "content": "Click the green **Execute Graph** button in the sidebar. FFStudio will parse your graph, generate the ffmpeg command, and run it. Progress and messages will appear in the **Logs** tab. Once finished, your transcoded MP4 file will be ready.",
+          "image": "tutorials/basic-transcoding-step7.png"
+        }
+      ],
+      "conclusion": "You’ve just completed your first transcoding workflow in FFStudio! This workflow shows the minimal structure: Global Options → Input → Stream Selector → Encoder + Output. From here, you can expand with audio, filters, multiple outputs, or custom options."
+    },
+    {
+      "id": "watermark-overlay",
+      "title": "Adding a Watermark to Your Video",
+      "description": "Learn how to apply a watermark image using FFStudio’s node-based workflow.",
+      "category": "Workflow Examples",
+      "readTime": "10 min read",
+      "date": "September 7, 2025",
+      "icon": "fas fa-image",
+      "image": "tutorials/watermark-overlay.png",
+      "tags": ["workflow", "filter", "watermark"],
+      "intro": "In this tutorial, we’ll build on the basic transcoding workflow by adding a filter: overlaying a watermark image. This shows how FFStudio makes ffmpeg’s powerful filter system intuitive and visual.",
+      "sections": [
+        {
+          "title": "Step 1: Start From a Basic Workflow",
+          "content": "If you completed the Basic Transcoding tutorial, you already know the minimal structure: Global Options → Input → Stream Selector → Encoder + Output. We’ll use that as our base.",
+          "image": "tutorials/watermark-step1.png"
+        },
+        {
+          "title": "Step 2: Add a Second Input for the Watermark",
+          "content": "Right-click on the canvas and add another **Input** node. Select the watermark image file (for example, a PNG with transparency). This will serve as the overlay source.",
+          "image": "tutorials/watermark-step2.png"
+        },
+        {
+          "title": "Step 3: Stream Selector for the Watermark",
+          "content": "Just like the main video, the watermark input also goes through a **Stream Selector**. Add one, connect it to the watermark Input, and set it to select the video stream of the PNG.",
+          "image": "tutorials/watermark-step3.png"
+        },
+        {
+          "title": "Step 4: Add the Overlay Filter",
+          "content": "Now add an **Overlay Filter** node. Connect the main video’s Stream Selector to the filter’s first input, and the watermark’s Stream Selector to the filter’s second input. In the properties, set overlay position (e.g., x=10, y=10 for top-left).",
+          "image": "tutorials/watermark-step4.png"
+        },
+        {
+          "title": "Step 5: Connect Filter to Stream Selector and Output",
+          "content": "Take the output of the Overlay Filter and connect it to a new Stream Selector, and then in the Stream Selector properties, set a unique stream name (e.g., watermarked_v0).\n-    Connect this new Stream Selector to:\n-    The video encoder (enc:v slot) → ensures the filter’s result is encoded.\n-    The Output node’s stream slot (maps) → ensures the filtered stream is included in the final file.\n-    The original video stream redirect to overlay filter in exect order. First video, Second Watermark.\nIf your video also has audio, remember to map the audio stream from the main input’s Stream Selector as well.",
+          "image": "tutorials/watermark-step5.png"
+        },
+        {
+          "title": "Step 6: Execute and Verify",
+          "content": "Click **Execute Graph**. In the Logs tab you’ll see ffmpeg run the overlay filter. Once finished, open the output video and check that your watermark appears at the correct position.",
+          "image": "tutorials/watermark-step6.png"
+        }
+      ],
+      "conclusion": "You’ve successfully added a watermark overlay using FFStudio! This workflow demonstrates how filters are added as nodes, connected visually, and combined into your transcoding pipeline. From here, you can explore more filters — scaling, cropping, color correction, and more."
     }
   ],
   "categories": [
