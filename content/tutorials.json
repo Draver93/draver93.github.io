@@ -384,6 +384,61 @@
         }
       ],
       "conclusion": "Congratulations! You've created a workflow that generates multiple outputs from a single input in one pass. This approach is perfect for preparing files for different platforms or formats without redundant re-encoding."
+    },
+    {
+      "id": "multi-bitrate-hls",
+      "title": "Exporting Multiple Bitrates in One Pass",
+      "description": "Learn how to export the same video into 1080p, 720p, and 480p variants in a single run using FFStudio.",
+      "category": "Workflow Examples",
+      "readTime": "15 min read",
+      "date": "September 8, 2025",
+      "icon": "fas fa-layer-group",
+      "image": "tutorials/multi-bitrate-export.png",
+      "tags": ["multi-bitrate", "encoding", "hls", "adaptive-streaming"],
+      "intro": "In this tutorial, you'll create a workflow that outputs the same source video into **three different resolutions (1080p, 720p, and 480p)**. This is useful for adaptive streaming pipelines (e.g., HLS, DASH) or simply preparing multiple qualities for different delivery contexts. Instead of re-encoding the input file three times, you’ll configure FFStudio to generate all variants in one pass.",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Start with an **Input** node and set the source path to your video file (`video.mp4`). This will feed streams to all outputs.",
+          "image": "tutorials/multi-bitrate-step1.png"
+        },
+        {
+          "title": "Step 2: Select Streams",
+          "content": "Add two **Stream Selector** nodes:\n- One for **video** streams.\n- One for **audio** streams.\nThese will allow you to branch the same streams to different encoders and filters.",
+          "image": "tutorials/multi-bitrate-step2.png"
+        },
+        {
+          "title": "Step 3: Add Scale Filters",
+          "content": "For the video selector output, create three **Scale** filter nodes:\n- 1920x1080 → name this output `v1080p`\n- 1280x720 → name this output `v720p`\n- 854x480 → name this output `v480p`\nThese filters downscale the video into different qualities.",
+          "image": "tutorials/multi-bitrate-step3.png"
+        },
+        {
+          "title": "Step 4: Re-Select Streams by Name",
+          "content": "After scaling, use **Stream Selector** nodes to tag the outputs by name (`v1080p`, `v720p`, `v480p`). This ensures the correct scaled version is mapped into each output container.",
+          "image": "tutorials/multi-bitrate-step4.png"
+        },
+        {
+          "title": "Step 5: Add Output Nodes",
+          "content": "Create three **Output** nodes:\n- `output_1080p.mp4`\n- `output_720p.mp4`\n- `output_480p.mp4`\nEach will act as a final container for the respective video+audio pair.",
+          "image": "tutorials/multi-bitrate-step5.png"
+        },
+        {
+          "title": "Step 6: Configure Encoders",
+          "content": "Add encoders and connect them:\n- **Video**: one `libx264` encoder is shared across all three outputs.\n- **Audio**: one `aac` encoder is also shared across outputs.\n- Add **Video Options** nodes to set bitrates per output:\n  - 1080p → `-b:v 5M`\n  - 720p → `-b:v 3M`\n  - 480p → `-b:v 1M`",
+          "image": "tutorials/multi-bitrate-step6.png"
+        },
+        {
+          "title": "Step 7: Connect Audio to Outputs",
+          "content": "For each output connect the audio. \nThis way each container receives the audio stream.",
+          "image": "tutorials/multi-bitrate-step7.png"
+        },
+        {
+          "title": "Step 8: Execute the Graph",
+          "content": "Click **Execute Graph**. FFStudio will generate three MP4 files in a single ffmpeg run, equivalent to:\n\n```bash ffmpeg -i video.mp4 -filter_complex '[0:v]scale=w=1920:h=1080[v1080p];[0:v]scale=w=1280:h=720[v720p];[0:v]scale=w=854:h=480[v480p]' -map [v1080p] -map 0:a -b:v 5M -c:a aac -c:v libx264 output_1080p.mp4 -map [v720p] -map 0:a -b:v 3M -c:a aac -c:v libx264 output_720p.mp4 -map [v480p] -map 0:a -b:v 1M -c:a aac -c:v libx264 output_480p.mp4```",
+          "image": "tutorials/multi-bitrate-step8.png"
+        }
+      ],
+      "conclusion": "You now have a workflow that generates multiple resolutions in one pass. This method is essential for adaptive streaming workflows, and you can expand it further to generate fragmented MP4 or HLS playlists from the same graph."
     }
   ],
   "categories": [
