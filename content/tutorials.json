@@ -334,6 +334,56 @@
         }
       ],
       "conclusion": "You’ve successfully added a watermark overlay using FFStudio! This workflow demonstrates how filters are added as nodes, connected visually, and combined into your transcoding pipeline. From here, you can explore more filters — scaling, cropping, color correction, and more."
+    },
+    {
+      "id": "multi-output-mp4-webm",
+      "title": "Exporting to MP4 and WebM in One Pass",
+      "description": "Learn how to create a single workflow that produces both an MP4 and a WebM file from the same input video.",
+      "category": "Workflow Examples",
+      "readTime": "12 min read",
+      "date": "September 8, 2025",
+      "icon": "fas fa-random",
+      "image": "tutorials/multi-output-mp4-webm.png",
+      "tags": ["multi-output", "encoding", "mp4", "webm"],
+      "intro": "In this tutorial, you'll learn how to set up FFStudio to generate **two different outputs in one run**: an MP4 with H.264 + AAC for universal compatibility, and a WebM with VP9 + Vorbis for open-format delivery. This saves time by avoiding multiple passes over the same input file.",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Add an **Input** node to the graph and set the source path to your video (e.g., `video.mp4`). This node will feed streams to both outputs.",
+          "image": "tutorials/multi-output-step1.png"
+        },
+        {
+          "title": "Step 2: Add Global Options",
+          "content": "Add a **Global Options** node with `-y` to allow overwriting existing files. Connect it to the Input node.",
+          "image": "tutorials/multi-output-step2.png"
+        },
+        {
+          "title": "Step 3: Select Streams",
+          "content": "Create two **Stream Selector** nodes: one for video and one for audio. \n- Set the first to `video`. \n- Set the second to `audio`. \nThis ensures you can route streams cleanly to different encoders and outputs.",
+          "image": "tutorials/multi-output-step3.png"
+        },
+        {
+          "title": "Step 4: Add Output Nodes",
+          "content": "Create two **Output** nodes — one for the MP4 file and one for the WebM file. Set their destination paths (e.g., `output.mp4` and `output.webm`). These will act as final containers for your encoded streams.",
+          "image": "tutorials/multi-output-step4.png"
+        },
+        {
+          "title": "Step 5: Configure the MP4 Output",
+          "content": "Add encoders for MP4: \n- **libx264** for video. Set preset to `veryfast` and CRF to `23`. \n- **AAC** for audio. \nConnect both encoders to the MP4 Output node.",
+          "image": "tutorials/multi-output-step5.png"
+        },
+        {
+          "title": "Step 6: Configure the WebM Output",
+          "content": "Add encoders for WebM: \n- **libvpx-vp9** for video. Add a Video Options node with `-b:v 1M` to target 1 Mbps bitrate. \n- **libvorbis** for audio (for better Windows compatibility). \nConnect both encoders to the WebM Output node.",
+          "image": "tutorials/multi-output-step6.png"
+        },
+        {
+          "title": "Step 7: Execute the Graph",
+          "content": "Click **Execute Graph** to run. FFStudio will generate both files in a single ffmpeg run, equivalent to the following command:\n\n```bashffmpeg -y -i video.mp4 -map 0:v -map 0:a -c:a aac -c:v libx264 -preset veryfast -crf 23 output.mp4 -map 0:v -map 0:a -b:v 1M -c:a libvorbis -c:v libvpx-vp9 output.webm```",
+          "image": "tutorials/multi-output-step7.png"
+        }
+      ],
+      "conclusion": "Congratulations! You've created a workflow that generates multiple outputs from a single input in one pass. This approach is perfect for preparing files for different platforms or formats without redundant re-encoding."
     }
   ],
   "categories": [
