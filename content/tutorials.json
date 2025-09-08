@@ -439,6 +439,56 @@
         }
       ],
       "conclusion": "You now have a workflow that generates multiple resolutions in one pass. This method is essential for adaptive streaming workflows, and you can expand it further to generate fragmented MP4 or HLS playlists from the same graph."
+    },
+    {
+      "id": "hls-export",
+      "title": "Exporting Multiple Bitrates for HLS Streaming",
+      "description": "Learn how to export your video into multiple HLS playlists (1080p, 720p, 480p) in one run using FFStudio.",
+      "category": "Workflows",
+      "readTime": "15 min read",
+      "date": "September 8, 2025",
+      "icon": "fas fa-stream",
+      "image": "tutorials/multi-bitrate-hls.png",
+      "tags": ["hls", "adaptive-streaming", "multi-bitrate", "encoding"],
+      "intro": "In this tutorial, you’ll create a workflow that exports the same input video into **HLS adaptive streams** at three different resolutions (1080p, 720p, 480p). This setup generates `.m3u8` playlists with segmented `.ts` files, making the content ready for adaptive delivery across devices.",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Start by adding an **Input** node to the canvas and setting its path to your source video (`video.mp4`). This will serve as the stream source for all HLS outputs.",
+          "image": "tutorials/hls-step1.png"
+        },
+        {
+          "title": "Step 2: Select Streams",
+          "content": "Use two **Stream Selector** nodes:\n- One for **video** streams.\n- One for **audio** streams.\nThis allows you to branch both streams to different filters and encoders as needed.",
+          "image": "tutorials/hls-step2.png"
+        },
+        {
+          "title": "Step 3: Add Bitrate Controls",
+          "content": "Attach **Video Options (-b)** nodes to define target bitrates:\n- 1080p → `-b:v 5M`\n- 720p → `-b:v 3M`\n- 480p → `-b:v 1M`\n\nTo make sure the bitrate applies to the correct type (video or audio), connect the bitrate node to an existing or new **Stream Selector** set to the right type. This ensures, for example, that `-b:v` applies only to video streams.",
+          "image": "tutorials/hls-step3.png"
+        },
+        {
+          "title": "Step 4: Add Scale Filters",
+          "content": "Add **Scale** filter nodes to the video branch to generate different sizes:\n- `1920x1080`\n- `1280x720`\n- `854x480`\n\nThese filters downscale the video into multiple qualities for HLS delivery. Remember: **Global Option nodes are chainable**, so you can link multiple global settings together (e.g., scaling, bitrates, presets) in sequence without conflict.",
+          "image": "tutorials/hls-step4.png"
+        },
+        {
+          "title": "Step 5: Add HLS Muxer",
+          "content": "Drag in an **HLS Muxer** node and set the playlist type to `vod`. This tells FFmpeg to produce a VOD-style `.m3u8` playlist with segments that can be streamed or hosted on a server.",
+          "image": "tutorials/hls-step5.png"
+        },
+        {
+          "title": "Step 6: Add Output Nodes",
+          "content": "Create three **Output** nodes, one for each quality:\n- `output_1080p.m3u8`\n- `output_720p.m3u8`\n- `output_480p.m3u8`\nAttach the correct bitrate and scale to each output. Also connect them to the HLS muxer.",
+          "image": "tutorials/hls-step6.png"
+        },
+        {
+          "title": "Step 7: Execute the Graph",
+          "content": "Click **Execute Graph**. FFStudio will generate `.m3u8` playlists and `.ts` segments in a single ffmpeg run. The equivalent command is:\n\n```bash ffmpeg -y -i video.mp4 -map 0:a -map 0:v -f hls -hls_time 6 -hls_playlist_type vod -b:v 5M -s 1920x1080 output_1080p.m3u8 -map 0:a -map 0:v -f hls -hls_time 6 -hls_playlist_type vod -b:v 3M -s 1280x720 output_720p.m3u8 -map 0:a -map 0:v -f hls -hls_time 6 -hls_playlist_type vod -b:v 1M -s 854x480 output_480p.m3u8```",
+          "image": "tutorials/hls-step7.png"
+        }
+      ],
+      "conclusion": "You now have a workflow that outputs multiple `.m3u8` playlists for adaptive HLS streaming. This is the foundation for scalable streaming systems, and you can expand it further with master playlists that reference these variant streams."
     }
   ],
   "categories": [
