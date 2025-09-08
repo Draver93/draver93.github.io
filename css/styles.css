@@ -708,3 +708,154 @@ footer {
         padding: 20px;
     }
 }
+
+/* Patreon Support Section */
+.patreon-support {
+    background: #1e1e1e;
+    padding: 80px 0;
+}
+
+.patreon-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.patreon-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.patreon-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.patreon-text li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patreon-text li i {
+    margin-right: 10px;
+    color: #6bcf7f;
+}
+
+.patreon-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.benefit {
+    background: #252525;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s;
+    border: 1px solid #3a3a3a;
+    text-align: center;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.benefit i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #e85c48;/*#FF424D; /* Patreon orange/red color */
+}
+
+.benefit h4 {
+    margin: 0.5rem 0;
+    color: #ffffff;
+}
+
+.benefit p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #ccc;
+}
+
+.patreon-cta {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.patreon-card {
+    background: #252525;
+    color: #e0e0e0;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    border: 1px solid #3a3a3a;
+    transition: transform 0.3s;
+}
+
+.patreon-card:hover {
+    transform: translateY(-5px);
+}
+
+.patreon-card i {
+    font-size: 3rem;
+    color: #e85c48;/*#FF424D; /* Patreon orange/red color */
+    margin-bottom: 1rem;
+}
+
+.patreon-card h3 {
+    margin: 1rem 0;
+    color: #ffffff;
+}
+
+.patreon-card p {
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.btn-patreon {
+    background: #e85c48;/*#FF424D; /* Patreon orange/red color */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.btn-patreon:hover {
+    background: #d1503c; /* Slightly darker Patreon color */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 66, 77, 0.4);
+}
+
+.btn-patreon i {
+    color: white !important; /* White icon on orange background */
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .patreon-content {
+        flex-direction: column;
+    }
+    
+    .patreon-card {
+        max-width: 100%;
+    }
+}

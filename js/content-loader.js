@@ -80,7 +80,13 @@ class ContentLoader {
         const heroSubtitle = document.querySelector('.hero p');
         const primaryBtn = document.querySelector('.cta-buttons .btn-primary');
         const secondaryBtn = document.querySelector('.cta-buttons .btn-secondary');
-        
+        const patreonBtn = document.querySelector('.btn-patreon');
+        if(links.external["patreon"]) patreonBtn.href = links.external["patreon"];
+        else {
+            patreonBtn.classList.add('btn-disabled');
+            patreonBtn.removeAttribute('href');
+        }
+
         if (heroTitle) heroTitle.textContent = config.hero.title;
         if (heroSubtitle) heroSubtitle.textContent = config.hero.subtitle;
         
