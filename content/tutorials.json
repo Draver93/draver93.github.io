@@ -444,7 +444,7 @@
       "id": "hls-export",
       "title": "Exporting Multiple Bitrates for HLS Streaming",
       "description": "Learn how to export your video into multiple HLS playlists (1080p, 720p, 480p) in one run using FFStudio.",
-      "category": "Workflows",
+      "category": "Workflow Examples",
       "readTime": "15 min read",
       "date": "September 8, 2025",
       "icon": "fas fa-stream",
@@ -489,6 +489,61 @@
         }
       ],
       "conclusion": "You now have a workflow that outputs multiple `.m3u8` playlists for adaptive HLS streaming. This is the foundation for scalable streaming systems, and you can expand it further with master playlists that reference these variant streams."
+    },
+    {
+      "id": "dash-export",
+      "title": "Exporting Video for MPEG-DASH Streaming",
+      "description": "Learn how to set up a graph in FFStudio that exports a video into an MPEG-DASH package with multiple bitrates and segments.",
+      "category": "Workflow Examples",
+      "readTime": "15 min read",
+      "date": "September 9, 2025",
+      "icon": "fas fa-network-wired",
+      "image": "tutorials/dash-export.png",
+      "tags": ["dash", "adaptive-streaming", "encoding", "segments"],
+      "intro": "MPEG-DASH is a widely used standard for adaptive streaming. In this tutorial, we’ll use **FFStudio** to create a workflow that outputs a video packaged into DASH with multiple variants and properly segmented `.m4s` chunks. You’ll also learn how to configure segment paths to avoid permission issues.",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Create an **Input** node and set the source path to your video (e.g., `video.mp4`, and don't forget -y node!). This node feeds both video and audio streams into the workflow.\n\n💡 Use the **Get Media Info** button if you’re unsure which streams are available (video, audio, IDs).",
+          "image": "tutorials/dash-step1.png"
+        },
+        {
+          "title": "Step 2: Select Streams",
+          "content": "Add **Stream Selector** nodes to separate video and audio streams. Typically:\n- One selector for **video**\n- One selector for **audio**\n\nThis lets you branch them out to encoders and filters independently.",
+          "image": "tutorials/dash-step2.png"
+        },
+        {
+          "title": "Step 3: Configure Video Variants",
+          "content": "Add **video option nodes** for bitrate (`-b:v`) and scaling (`-s`) to define multiple qualities, such as:\n- 1080p → `1920x1080` at `5M`\n- 720p → `1280x720` at `3M`\n- 480p → `854x480` at `1M`\n\n⚡ To specify whether options apply to video or audio, connect them to a **Stream Selector** with the correct type.",
+          "image": "tutorials/dash-step3.png"
+        },
+        {
+          "title": "Step 4: Add Global and Advanced Options",
+          "content": "Chain **Global/Per-file option nodes** like `-profile:v main` or `-level 3.1`. These are **chainable** — you can add multiple and link them together in sequence. This is where you fine-tune encoder constraints for DASH compatibility.",
+          "image": "tutorials/dash-step4.png"
+        },
+        {
+          "title": "Step 5: Add Encoders",
+          "content": "Connect encoders to your streams:\n- **Video**: `libx264` (or another DASH-compatible encoder)\n- **Audio**: `aac`\n\nMake sure both are linked to the output node.",
+          "image": "tutorials/dash-step5.png"
+        },
+        {
+          "title": "Step 6: Configure the DASH Muxer",
+          "content": "Add the **DASH Muxer** node. This defines how `.mpd` manifests and `.m4s` chunks are written.\n\n👉 Important: set the **segment path** (e.g., `C:\\ffmpegs\\segments\\chunk-stream$RepresentationID$-$Number%05d$.m4s`). Without it, ffmpeg may fail if it can’t write into the current directory.",
+          "image": "tutorials/dash-step6.png"
+        },
+        {
+          "title": "Step 7: Create the Output Node",
+          "content": "Add an **Output** node and set the path to the `.mpd` file (e.g., `C:\\ffmpegs\\output.mpd`).\n\nConnect the following:\n- Video encoder\n- Audio encoder\n- DASH muxer\n- All relevant stream selectors",
+          "image": "tutorials/dash-step7.png"
+        },
+        {
+          "title": "Step 8: Execute the Graph",
+          "content": "Click **Execute Graph**. FFStudio will run a command similar to:\n\n```bash C:\\ffmpegs\\ffmpeg-5.1\\ffmpeg.exe -y -i C:\\ffmpegs\\video.mp4 -map 0:v:0 -map 0:v:0 -map 0:v:0 -map 0:a -f dash -seg_duration 6 -use_template 1 -use_timeline 1 -media_seg_name \"C:\\ffmpegs\\segments\\chunk-stream$RepresentationID$-$Number%05d$.m4s\" -b:v:0 5M -s:v:0 1920x1080 -profile:v:0 main -b:v:1 3M -s:v:1 1280x720 -profile:v:1 main -b:v:2 1M -s:v:2 854x480 -profile:v:2 baseline -c:a aac -c:v libx264 -level 3.1 -crf 23 C:\\ffmpegs\\output.mpd ```",
+          "image": "tutorials/dash-step8.png"
+        }
+      ],
+      "conclusion": "Your workflow now exports a DASH-compliant stream with multiple qualities. The `.mpd` manifest and `.m4s` segments can be served directly via any HTTP server. From here, you can extend the graph to add more qualities or enable encryption (Widevine, FairPlay, etc.)."
     }
   ],
   "categories": [
