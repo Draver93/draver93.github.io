@@ -15,4 +15,4 @@ This Privacy Policy is provided to fulfill platform requirements and to affirm t
 Should FFStudio’s functionality change in the future to include data collection, this Privacy Policy will be updated promptly to reflect those changes.
 
 ## 5. Contact  
-Questions or concerns? Please email: alexeyf.160620@gmail.com
+Questions or concerns? Please email: ffstudio.app@gmail.com

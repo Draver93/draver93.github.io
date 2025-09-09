@@ -41,4 +41,4 @@ This license is effective until terminated. It will terminate automatically with
 
 **For commercial licensing inquiries, please contact:**  
 **Finoshkin Aleksei**  
-Email: alexeyf.160620@gmail.com
+Email: ffstudio.app@gmail.com

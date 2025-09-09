@@ -31,4 +31,4 @@ We may revise these Terms. Continued use of FFStudio signifies acceptance of any
 These Terms are governed by the laws of **Germany**. Any disputes will be resolved under German jurisdiction.
 
 ## 9. Contact  
-For questions or concerns, contact: alexeyf.160620@gmail.com
+For questions or concerns, contact: ffstudio.app@gmail.com
