@@ -544,6 +544,116 @@
         }
       ],
       "conclusion": "Your workflow now exports a DASH-compliant stream with multiple qualities. The `.mpd` manifest and `.m4s` segments can be served directly via any HTTP server. From here, you can extend the graph to add more qualities or enable encryption (Widevine, FairPlay, etc.)."
+    },
+    {
+      "id": "quick-gif-conversion",
+      "title": "Quick & Simple GIF Conversion",
+      "description": "Learn how to quickly convert videos to GIF format with basic quality adjustments.",
+      "category": "Workflow Examples",
+      "readTime": "8 min read",
+      "date": "September 10, 2025",
+      "icon": "fas fa-bolt",
+      "image": "tutorials/gif-conversion.png",
+      "tags": ["gif", "conversion", "quick", "simple"],
+      "intro": "In this tutorial, you'll learn how to create a simple workflow for converting video files to GIF format. This approach is perfect for quick conversions where file size isn't a primary concern.",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Add an **Input** node to the graph and set the source path to your video file (e.g., `video.mp4`).",
+          "image": "tutorials/gif-quick-step1.png"
+        },
+        {
+          "title": "Step 2: Add Global Options",
+          "content": "Add a **Global Options** node with `-y` to allow overwriting existing files. Connect it to the Input node.",
+          "image": "tutorials/gif-quick-step2.png"
+        },
+        {
+          "title": "Step 3: Select Video Stream",
+          "content": "Create a **Stream Selector** node set to `video` to isolate the video stream from your input.",
+          "image": "tutorials/gif-quick-step3.png"
+        },
+        {
+          "title": "Step 4: Adjust Frame Rate (Optional)",
+          "content": "Add an **FPS Filter** node to reduce the frame rate if needed. For GIFs, 10-15 FPS is often sufficient and reduces file size.",
+          "image": "tutorials/gif-quick-step4.png"
+        },
+        {
+          "title": "Step 5: Resize Video (Optional)",
+          "content": "Add a **Scale Filter** node to reduce dimensions if needed. Smaller dimensions significantly reduce GIF file size.",
+          "image": "tutorials/gif-quick-step5.png"
+        },
+        {
+          "title": "Step 6: Add Output Node",
+          "content": "Create an **Output** node and set the destination to your GIF file (e.g., `output.gif`). Connect your processed video stream to this node.",
+          "image": "tutorials/gif-quick-step6.png"
+        },
+        {
+          "title": "Step 7: Execute the Graph",
+          "content": "Click **Execute Graph** to convert your video to GIF. The equivalent command is:\n\n```bash C:\\ffmpegs\\ffmpeg-4.2\\ffmpeg.exe -y -i C:\\sources\\5sec.mp4 -filter_complex \"[0:v]fps=fps=10[vfps];[vfps]scale=w=480:h=-1[vscale]\" -map [vscale] C:\\sources\\output.gif```",
+          "image": "tutorials/gif-quick-step7.png"
+        }
+      ],
+      "conclusion": "You've created a simple workflow for converting videos to GIF format. While this approach is quick, the resulting GIFs may be large in file size and have limited colors. For higher quality results with smaller file sizes, see our Best Practices tutorial."
+    },
+    {
+      "id": "high-quality-gif",
+      "title": "High-Quality GIF Conversion with Palette Optimization",
+      "description": "Learn how to create optimized GIFs with better quality and smaller file sizes using palette generation.",
+      "category": "Workflow Examples",
+      "readTime": "12 min read",
+      "date": "September 10, 2025",
+      "icon": "fas fa-palette",
+      "image": "tutorials/gif-conversion.png",
+      "tags": ["gif", "palette", "optimization", "quality"],
+      "intro": "In this tutorial, you'll learn how to create high-quality GIFs with optimized file sizes using FFmpeg's palettegen and paletteuse filters. This method generates a custom color palette for your video, resulting in better visual quality and smaller file sizes compared to basic conversion methods.",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Add an **Input** node to the graph and set the source path to your video file (e.g., `video.mp4`).",
+          "image": "tutorials/gif-quality-step1.png"
+        },
+        {
+          "title": "Step 2: Add Global Options",
+          "content": "Add a **Global Options** node with `-y` to allow overwriting existing files. Connect it to the Input node.",
+          "image": "tutorials/gif-quality-step2.png"
+        },
+        {
+          "title": "Step 3: Select Video Stream",
+          "content": "Create a **Stream Selector** node set to `video` to isolate the video stream from your input.",
+          "image": "tutorials/gif-quality-step3.png"
+        },
+        {
+          "title": "Step 4: Adjust Frame Rate and Scale",
+          "content": "Add an **FPS Filter** node to set an appropriate frame rate (10-15 FPS works well for GIFs). Then add a **Scale Filter** node to resize your video to appropriate dimensions.",
+          "image": "tutorials/gif-quality-step4.png"
+        },
+        {
+          "title": "Step 5: Split the Video Stream",
+          "content": "Add a **Split Filter** node to create two identical streams from your processed video. One stream will be used for palette generation, and the other for the final output.",
+          "image": "tutorials/gif-quality-step5.png"
+        },
+        {
+          "title": "Step 6: Generate Color Palette",
+          "content": "Add a **Palettegen Filter** node to one branch of the split stream. This will analyze the video and generate an optimized color palette.",
+          "image": "tutorials/gif-quality-step6.png"
+        },
+        {
+          "title": "Step 7: Apply Palette to Video",
+          "content": "Add a **Paletteuse Filter** node. Connect the other branch of your split video stream to the first input, and the palette stream to the second input.",
+          "image": "tutorials/gif-quality-step7.png"
+        },
+        {
+          "title": "Step 8: Add Output Node",
+          "content": "Create an **Output** node and set the destination to your GIF file (e.g., `output.gif`). Connect the output from the Paletteuse filter to this node.",
+          "image": "tutorials/gif-quality-step8.png"
+        },
+        {
+          "title": "Step 9: Execute the Graph",
+          "content": "Click **Execute Graph** to convert your video to an optimized GIF. The equivalent command is:\n\n```bash C:\ffmpegs\ffmpeg-4.2\ffmpeg.exe -y -i C:\\sources\\5sec.mp4 -filter_complex \"[0:v]fps=fps=15[vfps];[vfps]scale=w=480:h=-1[vscale];[vscale]split=outputs=2[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=diff_mode=rectangle[result]\" -map [result] C:\\sources\\output.gif```",
+          "image": "tutorials/gif-quality-step9.png"
+        }
+      ],
+      "conclusion": "Congratulations! You've created a workflow that generates high-quality GIFs with optimized file sizes using palette generation. This method produces significantly better results than simple conversion, with more accurate colors and smaller file sizes."
     }
   ],
   "categories": [
