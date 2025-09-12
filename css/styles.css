@@ -46,6 +46,8 @@ header {
     font-weight: 600;
     font-size: 22px;
     color: #4dabf7;
+    user-select: none;
+    text-decoration:none;
 }
 
 .logo i {

@@ -654,6 +654,106 @@
         }
       ],
       "conclusion": "Congratulations! You've created a workflow that generates high-quality GIFs with optimized file sizes using palette generation. This method produces significantly better results than simple conversion, with more accurate colors and smaller file sizes."
+    },
+    {
+      "id": "whisper-transcription",
+      "title": "Automated Audio Transcription with OpenAI Whisper",
+      "description": "Learn how to transcribe audio or extract subtitles from any video file LOCALLY using the power of OpenAI's Whisper model directly inside an FFmpeg graph.",
+      "category": "Workflow Examples",
+      "readTime": "10 min read",
+      "date": "September 12, 2025",
+      "icon": "fas fa-language",
+      "image": "tutorials/whisper-transcription.png",
+      "tags": ["whisper", "ai", "transcription", "subtitles", "audio"],
+      "intro": "In this tutorial, you'll build a graph that takes any video or audio file, extracts the audio track, and sends it to OpenAI's state-of-the-art Whisper model for transcription. The result will be a text file (or subtitle file) with the spoken content, all in a single, automated workflow. ⚠️ Important: This requires a special FFmpeg build with Whisper support and a pre-downloaded Whisper model file.",
+      "sections": [
+        {
+          "title": "Prerequisite: Get FFmpeg with Whisper Support",
+          "content": "The whisper filter requires a recent FFmpeg build that includes this functionality. You can download the official FFmpeg build with Whisper support directly from the FFmpeg website.",
+          "image": "tutorials/whisper-prerequisite.png"
+        },
+        {
+          "title": "Prerequisite: Get Whisper Model",
+          "content": "Download a compatible Model from whisper.cpp repositories or other sources providing nightly/essentials builds",
+          "image": "tutorials/whisper-prerequisite1.png"
+        },
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Add an **Input** node to the graph and set the source path to your video file (e.g., `podcast.mp4`). This node will provide the audio stream for Whisper to process.",
+          "image": "tutorials/whisper-step1.png"
+        },
+        {
+          "title": "Step 2: Add Global Options",
+          "content": "Add a **Global Options** node with `-y` to allow overwriting existing files. Connect it to the Input node.",
+          "image": "tutorials/whisper-step2.png"
+        },
+        {
+          "title": "Step 3: Select the Audio Stream",
+          "content": "Create a **Stream Selector** node and set it to `audio` to isolate the audio stream from your input. Whisper only needs the audio track to work.",
+          "image": "tutorials/whisper-step3.png"
+        },
+        {
+          "title": "Step 4: Configure the Whisper Filter Node",
+          "content": "Add a **Whisper Filter** node and connect the audio stream to it. Configure these crucial settings:\n- **Model:** Path to your Whisper model file (must be a .bin file from whisper.cpp project, available on HuggingFace)\n- **Language:** Set the spoken language (e.g., `en` for English)\n- **Output Format:** Choose your output format: `txt` for plain text, `json` for JSON with timestamps, or `srt` for subtitles\n- **Output File:** Set the path for the resulting text file (e.g., `transcript.srt`)",
+          "image": "tutorials/whisper-step4.png"
+        },
+        {
+          "title": "Step 5: Configure the Output",
+          "content": "Since we're generating a text file, not a media file:\n1. Add a **Null Muxer** node to avoid creating unnecessary media output\n2. Add a **`-vn` (Video Options)** node to disable video processing\nConnect both to your Output node and set its path to `-` to output to stdout",
+          "image": "tutorials/whisper-step5.png"
+        },
+        {
+          "title": "Step 6: Execute the Graph",
+          "content": "Click **Execute Graph** to run. FFmpeg will extract the audio, pipe it to the Whisper filter, and generate your transcript file. The console will show Whisper's progress. The equivalent command is:\n\n```bash C:\\ffmpeg\\bin\\ffmpeg.exe -y  -i C:\\sources\\podcast.mp4 -filter_complex \"[0:a:0]whisper=model=C\\\\:/sources/ggml-large-v3.bin:language=en:destination=C\\\\:/sources/result.json:format=json\"  -f null -vn  -```",
+          "image": "tutorials/whisper-step6.png"
+        }
+      ],
+      "conclusion": "You've successfully created an automated transcription pipeline! This graph can be reused for any video or audio file. Experiment with different Whisper models (e.g., 'base', 'small', 'medium') for a balance of speed and accuracy, or change the output format to get exactly the transcription style you need."
+    },
+    {
+      "id": "windows-filter-paths",
+      "title": "Windows Filter Path Format: <code>The C\\\\:/path/to/file</code> Syntax",
+      "description": "Learn the specific path format required for FFmpeg filters on Windows and why the colon character must be escaped with a backslash.",
+      "category": "Getting Started",
+      "readTime": "6 min read",
+      "date": "September 12, 2025", 
+      "icon": "fas fa-file-alt",
+      "image": "tutorials/windows-filter-paths.png",
+      "tags": ["windows", "paths", "filters", "colon", "escaping"],
+      "intro": "When working with FFmpeg filters on Windows, you must use a specific path format that differs from standard Windows paths. This tutorial explains why filters require <code>C\\\\:/path/to/file.bin</code> syntax and how to properly escape the colon character in filter parameters.",
+      "sections": [
+        {
+          "title": "Why Filters Need Special Path Formatting",
+          "content": "FFmpeg filters parse their parameters differently than main input/output arguments. The colon (:) character has special meaning in filter syntax as it separates parameter names from values. This means standard Windows paths like <code>C:/path/to/file.bin</code> will be misinterpreted because the colon is treated as a syntax separator rather than part of the path.",
+          "image": "tutorials/filter-parsing.png"
+        },
+        {
+          "title": "The Required Format: Escape the Colon",
+          "content": "For filters on Windows, you must escape the colon character with a backslash. The correct format is:\n\n<code>C\\\\:/path/to/your/file.bin</code>\n\nNote the backslash before the colon. This tells FFmpeg's filter parser to treat the colon as a literal character rather than a parameter separator.",
+          "image": "tutorials/escaped-colon.png"
+        },
+        {
+          "title": "Comparison: What Works vs. What Doesn't",
+          "content": "Here's how different path formats behave in Windows filters:\n\n✅ <strong>Works:</strong> <code>C\\\\:/sources/ggml-large-v3.bin</code>\n✅ <strong>Works:</strong> <code>relative/path/to/file.bin</code>\n❌ <strong>Fails:</strong> <code>C:/sources/ggml-large-v3.bin</code>\n❌ <strong>Fails:</strong> <code>C\\\\:\\\\sources\\\\ggml-large-v3.bin</code>\n\nOnly the escaped colon format is guaranteed to work in filter parameters.",
+          "image": "tutorials/path-comparison.png"
+        },
+        {
+          "title": "Step-by-Step: Formatting Filter Paths",
+          "content": "Follow this process when adding paths to filter parameters:\n\n1. Start with your normal Windows path: <code>C:\\sources\\model.bin</code>\n2. Identify the colon character after the drive letter\n3. Insert a backslash before the colon: <code>C\\\\:\\sources\\model.bin</code>\n4. Use forward slashes for the rest of the path <code>C\\\\:/sources/model.bin</code>\n5. Paste this formatted path into your filter parameter",
+          "image": "tutorials/formatting-steps.png"
+        },
+        {
+          "title": "Real-World Examples",
+          "content": "Here's how this applies to common filters:\n\n<strong>Whisper Filter:</strong>\n<code>whisper=model=C\\\\:/models/ggml-base.en.bin:language=en</code>\n\n<strong>Subtitles Filter:</strong> \n<code>subtitles=filename=C\\\\:/assets/subtitles.srt</code>\n\n<strong>LUT Filter:</strong>\n<code>lut3d=file=C\\\\:/luts/custom.cube</code>\n\nNote how the colon after the drive letter is escaped, but the colons in filter parameters are not.",
+          "image": "tutorials/real-examples.png"
+        },
+        {
+          "title": "Troubleshooting Path Errors",
+          "content": "If your filter isn't working, check these common issues:\n\n1. <strong>Missing backslash before colon:</strong> <code>C:/path</code> instead of <code>C\\\\:/path</code>\n2. <strong>Incorrect slash direction:</strong> Use <code>C\\\\:/path/to/file</code> not <code>C\\\\:\\path\\to\\file</code>\n3. <strong>File doesn't exist:</strong> Verify the path is correct after formatting\n4. <strong>Permission issues:</strong> Ensure FFmpeg can access the file location\n\nCheck the FFmpeg console output for specific error messages about file access.",
+          "image": "tutorials/troubleshooting-paths.png"
+        }
+      ],
+      "conclusion": "Windows filter paths require specific formatting: escape the colon character with a backslash (<code>C\\\\:/path/to/file</code>) and use forward slashes for the remainder of the path. This syntax ensures FFmpeg's filter parser correctly interprets Windows paths without confusing the colon with parameter separators. Remember this rule whenever working with file-based filters on Windows systems."
     }
   ],
   "categories": [

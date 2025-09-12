@@ -199,7 +199,12 @@ class TutorialReader {
         if (section.image) {
             sectionContent += `
                 <div class="tutorial-section-image">
-                    <img src="assets/images/${section.image}" alt="${section.title}" onerror="this.style.display='none'">
+                    <img 
+                        src="assets/images/${section.image}" 
+                        alt="${section.title}" 
+                        class="zoomable-image"
+                        onerror="this.style.display='none'"
+                    >
                     <div class="image-caption">${section.title}</div>
                 </div>
             `;
@@ -388,5 +393,33 @@ window.addEventListener('popstate', (event) => {
     if (event.state && event.state.tutorialId) {
         // Reload the page to show the correct tutorial
         window.location.reload();
+    }
+});
+
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("zoomable-image")) {
+        const src = e.target.src;
+
+        // create overlay
+        const overlay = document.createElement("div");
+        overlay.style = `
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        `;
+        overlay.addEventListener("click", () => overlay.remove());
+
+        // create full-size image
+        const img = document.createElement("img");
+        img.src = src; 
+        img.style = "max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 0 20px #000;";
+        overlay.appendChild(img);
+
+        document.body.appendChild(overlay);
     }
 });
