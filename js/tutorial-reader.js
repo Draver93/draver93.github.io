@@ -12,7 +12,6 @@ class TutorialReader {
         try {
             // Load tutorials data
             await this.loadTutorials();
-            
             // Get tutorial ID from URL
             const tutorialId = this.getTutorialIdFromUrl();
             
@@ -28,6 +27,9 @@ class TutorialReader {
             
             // Initialize progress bar
             this.initProgressBar();
+
+            //copyright
+            this.populateFooter();
             
         } catch (error) {
             console.error('Error initializing tutorial reader:', error);
@@ -37,18 +39,22 @@ class TutorialReader {
 
     async loadTutorials() {
         try {
-            const [tutorialsResponse, linksResponse] = await Promise.all([
+            const [tutorialsResponse, siteConfigResponse, linksResponse] = await Promise.all([
                 fetch('content/tutorials.json'),
+                fetch('content/site-config.json'),
                 fetch('content/links.json')
             ]);
             
             if (!tutorialsResponse.ok) throw new Error(`HTTP error! status: ${tutorialsResponse.status}`);
+            if (!siteConfigResponse.ok) throw new Error(`HTTP error! status: ${siteConfigResponse.status}`);
             if (!linksResponse.ok) throw new Error(`HTTP error! status: ${linksResponse.status}`);
             
             const tutorialsData = await tutorialsResponse.json();
+            const siteConfigData = await siteConfigResponse.json();
             const linksData = await linksResponse.json();
             
             this.tutorials = tutorialsData.tutorials;
+            this.site_config = siteConfigData;
             this.links = linksData;
         } catch (error) {
             console.error('Error loading tutorials:', error);
@@ -381,6 +387,13 @@ class TutorialReader {
                 }
             }
         });
+    }
+
+    populateFooter() {
+        const copyright = document.querySelector('.copyright p');
+        if (copyright) {
+            copyright.innerHTML = this.site_config.footer.copyright;
+        }
     }
 }
 
