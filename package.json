@@ -1,7 +1,7 @@
 {
   "name": "ff-studio-website",
   "version": "1.0.0",
-  "description": "A modern, responsive website for FFStudio - a powerful video processing application powered by FFmpeg",
+  "description": "A modern, responsive website for FFStudio - a powerful Media processing application powered by FFmpeg",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",

@@ -1,6 +1,6 @@
 # FFStudio Website
 
-A modern, responsive website for FFStudio - a powerful video processing application powered by FFmpeg.
+A modern, responsive website for FFStudio - a powerful Media processing application powered by FFmpeg.
 
 ## Project Structure
 

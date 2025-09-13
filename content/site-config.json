@@ -1,9 +1,9 @@
 {
   "site": {
-    "title": "FFStudio - Video Processing Made Simple",
-    "tagline": "Powerful video processing with FFmpeg",
+    "title": "FFStudio - Media Processing Made Simple",
+    "tagline": "Powerful Media processing with FFmpeg",
     "description": "FFStudio simplifies video editing workflows with a node-based interface powered by FFmpeg",
-    "keywords": "ffstudio, ffmpeg, video processing, video editing, node-based, workflow"
+    "keywords": "ffstudio, ffmpeg, Media processing, video editing, node-based, workflow"
   },
   "navigation": [
     {
@@ -28,7 +28,7 @@
     }
   ],
   "hero": {
-    "title": "Powerful Video Processing with FFmpeg",
+    "title": "Powerful Media Processing with FFmpeg",
     "subtitle": "FFStudio simplifies video editing workflows with a node-based interface powered by FFmpeg",
     "primaryButton": {
       "text": "Download Now",
@@ -45,7 +45,7 @@
     "columns": [
       {
         "title": "FFStudio",
-        "description": "Powerful video processing made simple with a node-based interface powered by FFmpeg.",
+        "description": "Powerful Media processing made simple with a node-based interface powered by FFmpeg.",
         "socialLinks": [
           {
             "platform": "GitHub",
