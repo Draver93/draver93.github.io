@@ -137,6 +137,7 @@ class TutorialReader {
         
         // Add conclusion
         if (tutorial.conclusion) {
+            tutorial.conclusion = tutorial.conclusion.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
             bodyContent += `
                 <div class="tutorial-conclusion">
                     <h3><i class="fas fa-check-circle"></i> Conclusion</h3>

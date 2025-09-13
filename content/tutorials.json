@@ -491,6 +491,66 @@
       "conclusion": "You now have a workflow that outputs multiple `.m3u8` playlists for adaptive HLS streaming. This is the foundation for scalable streaming systems, and you can expand it further with master playlists that reference these variant streams."
     },
     {
+      "id": "hls-master-manifest",
+      "title": "Exporting HLS with Master Playlist",
+      "description": "Learn how to export multiple resolutions into an adaptive HLS output with a master playlist that references all variants.",
+      "category": "Workflow Examples",
+      "readTime": "20 min read",
+      "date": "September 13, 2025",
+      "icon": "fas fa-stream",
+      "image": "tutorials/multi-bitrate-hls.png",
+      "tags": ["hls", "adaptive-streaming", "multi-bitrate", "manifest"],
+      "intro": "In this tutorial, you’ll extend the multi-bitrate export workflow by creating an **HLS package** with multiple variants (1080p, 720p, 480p). Instead of separate MP4 files, you’ll produce `.m3u8` playlists for each resolution plus a **master manifest** that ties them together. This setup is the foundation of adaptive HTTP Live Streaming (HLS).",
+      "sections": [
+        {
+          "title": "Step 1: Add the Input Node",
+          "content": "Start with an **Input** node pointing to your source video (video.mp4). This will provide both video and audio streams for the HLS workflow.",
+          "image": "tutorials/hls-masater-step1.png"
+        },
+        {
+          "title": "Step 2: Separate Video and Audio",
+          "content": "Use two **Stream Selector** nodes:\n- One for **video** (all video streams).\n- One for **audio** (select the primary audio track).\nThis lets you scale video streams independently while keeping audio consistent across renditions.",
+          "image": "tutorials/hls-masater-step2.png"
+        },
+        {
+          "title": "Step 3: Split Video Streams",
+          "content": "Add a **Split** node to branch the video stream into three paths (for 1080p, 720p, and 480p). Each path will be scaled differently.",
+          "image": "tutorials/hls-masater-step3.png"
+        },
+        {
+          "title": "Step 4: Apply Scaling Filters",
+          "content": "Attach **Scale** filters to each branch:\n- 1920x1080 → name this output v1080p\n- 1280x720 → name this output v720p\n- 854x480 → name this output v480p\n\nThis ensures each variant has the correct resolution.",
+          "image": "tutorials/hls-masater-step4.png"
+        },
+        {
+          "title": "Step 5: Re-Select Streams by Name",
+          "content": "After scaling, use **Stream Selector** nodes to tag each video stream (`v1080p`, `v720p`, `v480p`). These named streams will be mapped into the final HLS muxer.",
+          "image": "tutorials/hls-masater-step5.png"
+        },
+        {
+          "title": "Step 6: Configure Video/Audio Bitrates",
+          "content": "Attach **Video Options (-b:v)** nodes to each video stream:\n- 1080p → 5M\n- 720p → 3M\n- 480p → 1M\n- a → 128k\n\nThis defines the target bitrate for each resolution in the adaptive ladder.\n\nChain Global/Per-file option nodes. These are chainable — you can add multiple and link them together in sequence. This is where you fine-tune encoder constraints for HLS compatibility.",
+          "image": "tutorials/hls-masater-step6.png"
+        },
+        {
+          "title": "Step 7: Add the HLS Muxer",
+          "content": "Insert an **HLS Muxer** node and configure it:\n- Output segment pattern: `stream_%v_%03d.ts`\n- Variant playlists: `stream_%v.m3u8`\n- Master playlist: `master.m3u8`\n- Playlist type: VOD (Video on Demand)\n\nThe `%v` placeholder will be replaced by the variant index (0,1,2).",
+          "image": "tutorials/hls-masater-step7.png"
+        },
+        {
+          "title": "Step 8: Add the Output Node",
+          "content": "Finally, connect everything into an **Output** node pointing to your HLS output folder (e.g., `output/hls_output/`). This will generate the `.ts` segments, variant `.m3u8` playlists, and the master manifest.",
+          "image": "tutorials/hls-masater-step8.png"
+        },
+        {
+          "title": "Step 9: Execute the Graph",
+          "content": "Click **Execute Graph**. FFStudio will generate adaptive HLS output equivalent to running:\n\n```bash C:\\ffmpegs\\ffmpeg-6.1\\ffmpeg.exe -i C:\\sources\\video.mp4 -filter_complex \"[0:v]split=outputs=3[v0][v1][v2];[v0]scale=width=1920:height=1080[v1080p];[v1]scale=width=1280:height=720[v720p];[v2]scale=width=854:height=480[v480p]\" -map [v1080p] -map [v720p] -map [v480p] -map 0:a:0 -map 0:a:0 -map 0:a:0 -f hls -hls_segment_filename C:\\sources\\output\\hls_output\\stream_%v_%03d.ts -hls_playlist_type vod -var_stream_map \"v:0,a:0 v:1,a:1 v:2,a:2\" -master_pl_name master.m3u8 -b:v:0 5M -b:v:1 3M -b:v:2 1M -b:a 128k C:\\sources\\output\\hls_output\\stream_%v.m3u8```",
+          "image": "tutorials/hls-masater-step9.png"
+        }
+      ],
+      "conclusion": "You now have a workflow that generates an adaptive HLS output with a **master playlist**. Video players will automatically select the appropriate stream based on network conditions. This approach is production-ready and can be extended with more renditions, DRM, or live streaming settings."
+    },
+    {
       "id": "dash-export",
       "title": "Exporting Video for MPEG-DASH Streaming",
       "description": "Learn how to set up a graph in FFStudio that exports a video into an MPEG-DASH package with multiple bitrates and segments.",
