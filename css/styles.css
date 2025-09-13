@@ -861,3 +861,43 @@ footer {
         max-width: 100%;
     }
 }
+
+.windows-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.warning-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffc107;
+    color: #212529;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.warning-bar i {
+    font-size: 16px;
+}
+
+.windows-card .platform-icon {
+    margin-top: 40px; /* Add space for the warning bar */
+}
+
+@media (max-width: 768px) {
+    .warning-bar {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .windows-card .platform-icon {
+        margin-top: 35px;
+    }
+}
