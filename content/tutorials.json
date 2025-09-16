@@ -814,6 +814,56 @@
         }
       ],
       "conclusion": "Windows filter paths require specific formatting: escape the colon character with a backslash (<code>C\\\\:/path/to/file</code>) and use forward slashes for the remainder of the path. This syntax ensures FFmpeg's filter parser correctly interprets Windows paths without confusing the colon with parameter separators. Remember this rule whenever working with file-based filters on Windows systems."
+    },
+    {
+      "id": "stitch-videos-looping-audio",
+      "title": "Stitch Videos with Different Formats and Add Looping Audio",
+      "description": "Learn how to combine videos with different formats, resolutions, and frame rates into a seamless sequence with continuous looping background audio.",
+      "category": "Workflow Examples",
+      "readTime": "25 min read",
+      "date": "September 16, 2025",
+      "icon": "fas fa-film",
+      "image": "tutorials/stitch-videos-audio.png",
+      "tags": ["concatenate", "looping audio", "video stitching", "normalization", "fade effects"],
+      "intro": "In this tutorial, you'll learn how to combine three different videos (with varying formats, resolutions, and frame rates) into a single seamless video. You'll also add background audio that loops continuously throughout the entire sequence, with smooth fade transitions between videos.",
+      "sections": [
+        {
+          "title": "Step 1: Understanding the Workflow",
+          "content": "This workflow processes three different video sources (A.mp4, B.mov, and C.webm) with potentially different properties, and combines them with a background audio track (E.flac) that loops continuously.\n **Each video is:**\n- Scaled to a consistent resolution (1920x1080)\n- Faded in at the beginning\n- Faded out at the end\n- Concatenated into a single sequence\n\n**The audio is processed with:**\n- A fade in at the beginning\n- A fade out at the end\n- Looping to continue throughout the entire video\n- Mixed with the final video output",
+          "image": "tutorials/stitch-overview.png"
+        },
+        {
+          "title": "Step 2: Add Input Nodes",
+          "content": "Add four **Input** nodes:\n- Three for your video sources (A.mp4, B.mov, C.webm)\n- One for your audio source (E.flac)\n\nThese will serve as the starting points for all processing. Even though the videos have different formats and properties, FFStudio will handle the decoding automatically.",
+          "image": "tutorials/stitch-inputs.png"
+        },
+        {
+          "title": "Step 3: Process Each Video (Timing Considerations)",
+          "content": "For each video, follow these steps:\n\n1. Add a **Stream Selector** node to extract the video stream\n2. Add a **Scale** filter node to normalize the resolution to 1920x1080\n3. Add a **Fade In** filter node (typically 1-2 seconds for a smooth opening)\n4. Add a **Fade Out** filter node (crucial for seamless transitions)\n\n**Important Timing Consideration:**\nFor fade out effects, you need to know the exact duration of each video segment to position the fade correctly. The fade out should start a few seconds before the end of each clip. You can:\n- Check each video's duration in the media info panel\n- Calculate the fade start time as (total duration - fade length)\n- Set the fade duration based on your desired transition smoothness (typically 1-3 seconds)\n\nUse **Stream Selector** nodes to name the outputs (v0_scale, v0_fade_in, v0_fade_out) for easy reference later.",
+          "image": "tutorials/stitch-video-processing.png"
+        },
+        {
+          "title": "Step 4: Process the Audio",
+          "content": "For the audio track:\n\n1. Add a **Stream Selector** node to extract the audio stream\n2. Add an **Audio Fade In** filter node (set to 1-2 seconds)\n3. Add an **Audio Fade Out** filter node (set to match the video fade out timing)\n4. Add an **Audio Loop** filter node (set to loop multiple times with sufficient buffer size)\n5. Use **Stream Selector** nodes to name the outputs (a0_fade_in, a0_fade_out)",
+          "image": "tutorials/stitch-audio-processing.png"
+        },
+        {
+          "title": "Step 5: Concatenate the Videos",
+          "content": "Add a **Concat** filter node with 3 inputs. Connect the faded outputs from all three videos (v0_fade_out, v1_fade_out, v2_fade_out) to the concat node. This will combine them into a single video stream in sequence.",
+          "image": "tutorials/stitch-concat.png"
+        },
+        {
+          "title": "Step 6: Configure Output",
+          "content": "Add an **Output** node and configure it:\n\n1. Connect the concatenated video stream\n2. Connect the processed audio stream\n3. Set the output path (e.g., result.mp4)\n4. Add the **-shortest** option to ensure the output ends when the video ends\n5. Add the **-y** option to overwrite output files without prompting",
+          "image": "tutorials/stitch-output.png"
+        },
+        {
+          "title": "Step 7: Execute the Graph",
+          "content": "Click **Execute Graph**. FFStudio will process all videos, normalize them to the same specifications, apply fade effects, concatenate them, and add the looping audio track with proper fading.\n\nThe equivalent ffmpeg command would be complex due to the multiple filters and processing steps, but FFStudio simplifies this through a visual interface.",
+          "image": "tutorials/stitch-execute.png"
+        }
+      ],
+      "conclusion": "You've successfully created a workflow to combine multiple videos with different properties into a single cohesive video with continuously looping background audio. This technique is useful for creating compilations, highlight reels, or any project where you need to merge disparate video sources while maintaining professional transitions and continuous audio."
     }
   ],
   "categories": [
