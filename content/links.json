@@ -27,9 +27,9 @@
     "eula": "/LICENSE.md"
   },
   "downloads": {
-    "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.1.7-alpha/ffstudio_0.1.7-1_amd64.exe",
+    "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.1.8-alpha/ffstudio_0.1.8-1_amd64.exe",
     "macos": "",
-    "linux": "https://github.com/Draver93/ff-studio/releases/download/v0.1.7-alpha/ffstudio_0.1.7-1_amd64.deb",
+    "linux": "https://github.com/Draver93/ff-studio/releases/download/v0.1.8-alpha/ffstudio_0.1.8-1_amd64.deb",
     "android": ""
   },
   "tutorials": {
