@@ -864,6 +864,60 @@
         }
       ],
       "conclusion": "You've successfully created a workflow to combine multiple videos with different properties into a single cohesive video with continuously looping background audio. This technique is useful for creating compilations, highlight reels, or any project where you need to merge disparate video sources while maintaining professional transitions and continuous audio."
+    },
+    {
+      "id": "vertical-to-horizontal-conversion",
+      "title": "Transforming Vertical Video to Horizontal Format with Blur Effects",
+      "description": "Learn how to convert vertical video sources into horizontal format using blur effects to fill empty areas naturally.",
+      "category": "Workflow Examples",
+      "readTime": "15 min read",
+      "date": "September 17, 2025",
+      "icon": "fas fa-arrows-alt-h",
+      "image": "tutorials/vertical-to-horizontal.png",
+      "tags": ["aspect-ratio", "vertical-video", "blur-effects", "video-processing"],
+      "intro": "In this tutorial, you'll learn how to transform vertical (9:16) video content into horizontal (16:9) format using FFStudio's node-based workflow. This technique solves the common problem of black bars on the sides by creating aesthetically pleasing blur effects that extend the background naturally.",
+      "sections": [
+        {
+          "title": "Step 1: Set Up Input and Global Options",
+          "content": "Start by adding an **Input Node** configured with your vertical source video path (e.g., `C:\\sources\\vert_video_sample.mp4`). Connect a **Global Options Node** with the `-y` flag to enable overwrite confirmation for the output file.",
+          "image": "tutorials/vert-hor-step1.png"
+        },
+        {
+          "title": "Step 2: Separate Video Stream",
+          "content": "Add a **Stream Selector Node** configured to select by type: **video**. This isolates the video stream from potential audio tracks for processing.",
+          "image": "tutorials/vert-hor-step2.png"
+        },
+        {
+          "title": "Step 3: Create Parallel Processing Paths",
+          "content": "Branch the video stream into two paths using two **Stream Selector Nodes**. Both will receive the same video stream but will be processed differently:\n- Path 1: Main content processing\n- Path 2: Background effect processing"
+        },
+        {
+          "title": "Step 4: Process Main Content Path",
+          "content": "On the first path:\n- Add a **Crop Filter** with `out_w=\"ih*9/16\"` to maintain vertical aspect ratio\n- Name output: `v0_crop`\n- Add a **Scale Filter** with `w=\"-1\"`, `h=\"ih*1.2\"` to slightly enlarge content\n- Name output: `v0_scale`",
+          "image": "tutorials/vert-hor-step4.png"
+        },
+        {
+          "title": "Step 5: Process Background Effect Path",
+          "content": "On the second path:\n- Add a **Scale Filter** with `w=\"ih*16/9\"`, `h=\"-1\"` to convert to horizontal aspect ratio\n- Name output: `v1_scaled`\n- Add a **Gaussian Blur Filter** with sigma value: `30`\n- Name output: `v1_blur`\n- Add a **Crop Filter** with `out_h=\"iw*9/16\"` to refine the blurred background\n- Name output: `v1_crop`",
+          "image": "tutorials/vert-hor-step5.png"
+        },
+        {
+          "title": "Step 6: Overlay and Composite Streams",
+          "content": "Combine processed streams using an **Overlay Filter Node**:\n- Connect main content stream (`v0_scale`) to overlay input\n- Connect background stream (`v1_crop`) to base input\n- Configure position: `x=\"(main_w-overlay_w)/2\"` to center content\n- Name output: `v_overlay`",
+          "image": "tutorials/vert-hor-step6.png"
+        },
+        {
+          "title": "Step 7: Final Scaling and Output",
+          "content": "Prepare the final output:\n- Add a **Scale Filter** with `w=\"1920\"`, `h=\"1080\"` for Full HD output\n- Name output: `v_result`\n- Add an **Output Node** with destination path (e.g., `C:\\sources\\output\\hor_video.mp4`)",
+          "image": "tutorials/vert-hor-step7.png"
+        },
+        {
+          "title": "Step 8: Execute the Graph",
+          "content": "Review all connections and click **Execute Graph**. FFStudio will process the vertical video into horizontal format with blur effects, equivalent to running:\n\n```bash C:\\ffmpegs\\ffmpeg-3.2\\ffmpeg.exe -y -i C:\\sources\\vert_video_sample.mp4 -filter_complex \"[0:v]crop=out_w=ih*9/16[v0_crop];[0:v]scale=w=ih*16/9:h=-1[v1_scale];[v0_crop]scale=w=-1:h=ih*1.2[v0_scale];[v1_scale]gblur=sigma=30[v1_blur];[v1_blur]crop=out_h=iw*9/16[v1_crop];[v1_crop][v0_scale]overlay=x=(main_w-overlay_w)/2[v_overlay];[v_overlay]scale=w=1920:h=1080[v_result]\" -map [v_result] C:\\sources\\output\\hor_video.mp4```",
+          "image": "tutorials/vert-hor-step8.png"
+        }
+      ],
+      "conclusion": "You've successfully created a workflow that transforms vertical video into horizontal format with professional blur effects. This technique maintains visual quality while solving aspect ratio conversion challenges. The workflow can be extended with additional effects, color grading, or batch processing capabilities."
     }
   ],
   "categories": [
