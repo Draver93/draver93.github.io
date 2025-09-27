@@ -1,0 +1,282 @@
+/* Graph Viewer Styles - Updated with Full Palette */
+.hero {
+    padding: var(--space-xxl) 0;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(37,37,37,0.7), rgba(37,37,37,0.3), rgba(26,26,26,1.0)),
+              url("../assets/images/hero.jpeg") no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-md);
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: var(--text-xl);
+    opacity: 0.9;
+}
+
+
+.results-info {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    padding: var(--space-lg);
+}
+
+.entries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xxl);
+}
+
+.graph-entry {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.graph-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    border-color: var(--accent-color);
+    background: var(--card-hover);
+}
+
+.graph-entry h2 {
+    color: var(--text-color);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+.graph-entry p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+}
+
+.graph-entry img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin: var(--space-md) 0;
+    border: 1px solid var(--border-color);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+}
+
+.tag {
+    background: rgba(77, 171, 247, 0.1);
+    color: #4dabf7;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(77, 171, 247, 0.3);
+}
+
+.graph-text-container {
+    margin-top: auto;
+}
+
+.graph-input-wrapper {
+    display: flex;
+    background: var(--input-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.graph-input {
+    flex: 1;
+    padding: var(--space-sm);
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: 'Courier New', monospace;
+    font-size: var(--text-sm);
+}
+
+.graph-input:focus {
+    outline: none;
+    background: var(--input-bg);
+}
+
+.copy-btn {
+    background: var(--button-bg);
+    border: none;
+    color: var(--button-text);
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    transition: background var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    background: var(--button-hover);
+}
+
+.loading {
+    text-align: center;
+    padding: var(--space-xxl);
+    color: var(--text-muted);
+    font-size: var(--text-lg);
+}
+
+.error-message {
+    background: var(--error-color);
+    color: var(--text-color);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin: var(--space-xl) 0;
+}
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.pagination-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+.page-numbers {
+    display: flex;
+    gap: var(--space-sm);
+    margin: 0 var(--space-md);
+}
+
+.page-number {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 44px;
+    text-align: center;
+}
+
+.page-number:hover {
+    background: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+.page-number.active {
+    background: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+.page-size-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-muted);
+}
+
+#page-size {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+/* Success state for copy button */
+.copy-btn.success {
+    background: var(--success-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: var(--text-3xl);
+    }
+    
+    .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    .entries-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .graph-entry {
+        padding: var(--space-md);
+    }
+    
+    .pagination-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .page-numbers {
+        margin: var(--space-sm) 0;
+    }
+}

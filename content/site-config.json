@@ -17,6 +17,11 @@
       "url": "#tutorials"
     },
     {
+      "id": "graphs",
+      "label": "Graph Library",
+      "url": "graph-viewer.html"
+    },
+    {
       "id": "downloads",
       "label": "Download",
       "url": "#downloads"

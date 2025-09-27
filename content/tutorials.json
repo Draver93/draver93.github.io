@@ -794,8 +794,7 @@
         },
         {
           "title": "Comparison: What Works vs. What Doesn't",
-          "content": "Here's how different path formats behave in Windows filters:\n\n✅ <strong>Works:</strong> <code>C\\\\:/sources/ggml-large-v3.bin</code>\n✅ <strong>Works:</strong> <code>relative/path/to/file.bin</code>\n❌ <strong>Fails:</strong> <code>C:/sources/ggml-large-v3.bin</code>\n❌ <strong>Fails:</strong> <code>C\\\\:\\\\sources\\\\ggml-large-v3.bin</code>\n\nOnly the escaped colon format is guaranteed to work in filter parameters.",
-          "image": "tutorials/path-comparison.png"
+          "content": "Here's how different path formats behave in Windows filters:\n\n✅ <strong>Works:</strong> <code>C\\\\:/sources/ggml-large-v3.bin</code>\n✅ <strong>Works:</strong> <code>relative/path/to/file.bin</code>\n❌ <strong>Fails:</strong> <code>C:/sources/ggml-large-v3.bin</code>\n❌ <strong>Fails:</strong> <code>C\\\\:\\\\sources\\\\ggml-large-v3.bin</code>\n\nOnly the escaped colon format is guaranteed to work in filter parameters."
         },
         {
           "title": "Step-by-Step: Formatting Filter Paths",

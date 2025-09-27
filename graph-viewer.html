@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFStudio - Graph Library</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/graph-viewer.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a class="logo" href="index.html">
+                    <i class="fas fa-film"></i>
+                    <span>FFStudio</span>
+                </a>
+                <nav>
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Graph Library</h1>
+                <p>Ready-to-use graph templates. <br>Browse and copy graph data for your projects.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="controls-bar">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search graphs..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+
+                    <div class="results-info">
+                        <span id="results-count">Showing 0 graphs</span>
+                    </div>
+                </div>
+
+                <div id="entries-container" class="entries-grid" style="scroll-margin-top: 100px;"></div>
+
+                <div id="loading-message" class="loading">Loading graphs...</div>
+                <div id="error-message" class="error-message" style="display: none;"></div>
+
+                <div class="pagination-container">
+                    <div class="pagination-controls">
+                        <button id="first-page" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-double-left"></i>
+                        </button>
+                        <button id="prev-page" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-left"></i>
+                        </button>
+
+                        <div id="page-numbers" class="page-numbers"></div>
+
+                        <button id="next-page" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-right"></i>
+                        </button>
+                        <button id="last-page" class="pagination-btn" disabled>
+                            <i class="fas fa-angle-double-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="page-size-selector">
+                        <label for="page-size">Graphs per page:</label>
+                        <select id="page-size">
+                            <option value="6">6</option>
+                            <option value="12" selected>12</option>
+                            <option value="24">24</option>
+                            <option value="48">48</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; [Copyright] Loading...</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/graph-viewer.js"></script>
+</body>
+
+</html>

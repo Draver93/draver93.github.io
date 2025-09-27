@@ -25,6 +25,8 @@ class TutorialReader {
             // Initialize navigation
             this.initNavigation();
             
+            this.populateNavigation();
+            
             // Initialize progress bar
             this.initProgressBar();
 
@@ -387,6 +389,25 @@ class TutorialReader {
                 }
             }
         });
+    }
+
+    populateNavigation() {
+        let links = this.links;
+        let navigation = this.site_config.navigation;
+
+        const navList = document.querySelector('nav ul');
+        if (!navList) return;
+
+        navList.innerHTML = navigation.map(item => {
+            const url = item.url.startsWith('#') ? item.url : links.navigation[item.url] || item.url;
+            const isAvailable = url && url.trim() !== '' && url !== '#';
+            
+            if (!isAvailable) {
+                return `<li><span class="nav-link-disabled">${item.label}</span></li>`;
+            }
+            
+            return `<li><a href="${item.url.startsWith('#') ? 'index.html' : ''}${url}">${item.label}</a></li>`;
+        }).join('');
     }
 
     populateFooter() {
