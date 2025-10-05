@@ -917,6 +917,49 @@
         }
       ],
       "conclusion": "You've successfully created a workflow that transforms vertical video into horizontal format with professional blur effects. This technique maintains visual quality while solving aspect ratio conversion challenges. The workflow can be extended with additional effects, color grading, or batch processing capabilities."
+    },
+    {
+      "id": "red-nodes-compatibility",
+      "title": "Understanding Red Nodes: Import Compatibility Issues",
+      "description": "Learn what red nodes mean when importing workflows, why they appear, and how to fix compatibility issues between different FFmpeg versions.",
+      "category": "Getting Started",
+      "readTime": "5 min read",
+      "date": "October 5, 2025",
+      "icon": "fas fa-exclamation-triangle",
+      "image": "tutorials/red-nodes.png",
+      "tags": ["import", "compatibility", "nodes", "troubleshooting", "workflow"],
+      "intro": "Red nodes appear when importing workflows into FFStudio and indicate compatibility issues. This tutorial explains what causes red nodes, what they mean for your workflow, and how to resolve them quickly.",
+      "sections": [
+        {
+          "title": "What Are Red Nodes?",
+          "content": "Red nodes are visual warnings that appear when you import a workflow into FFStudio. They indicate that a node from the imported workflow is not compatible with your current FFmpeg installation. This happens because:\n\n• The node name has changed between FFmpeg versions\n• The node doesn't exist in your version of FFmpeg\n• The node syntax has been modified or deprecated\n\nRed nodes prevent the workflow from running until they're fixed.",
+          "image": "tutorials/red-node-example.png"
+        },
+        {
+          "title": "Why Do Red Nodes Appear?",
+          "content": "Red nodes typically appear due to version differences between the person who created the workflow and your FFmpeg installation. FFmpeg filters and options can change between versions:\n\n<strong>Common causes:</strong>\n• Filter renamed (e.g., <code>scale2ref</code> to <code>scale2ref_npp</code>)\n• Filter removed in newer versions\n• New filter not available in older versions\n• Slight name variations or typos in the original workflow",
+          "image": "tutorials/version-differences.png"
+        },     
+        {
+          "title": "Step-by-Step: Fixing Red Nodes",
+          "content": "Follow this process to resolve red nodes:\n\n1. <strong>Identify the red node:</strong> Click on it to see its name and parameters\n2. <strong>Search your library:</strong> Look for similar node names in your FFmpeg installation\n3. <strong>Check compatibility:</strong> Verify the replacement node accepts the same parameters\n4. <strong>Replace the node:</strong> Delete the red node and connect the correct version\n5. <strong>Test the workflow:</strong> Run the workflow to ensure it works correctly\n\nIf multiple red nodes appear, fix them one at a time to avoid confusion."
+        },
+        {
+          "title": "Best Case Scenario: Simple Name Differences",
+          "content": "In the best case, the red node exists in your FFmpeg version but with a slightly different name. This is the easiest to fix:\n\n1. Note the name of the red node\n2. Search your FFmpeg node library for similar names\n3. Find the equivalent node in your version\n4. Replace the red node with the correct version\n\nFor example, a node named <code>colormatrix</code> might be <code>colorspace</code> in your version.",
+          "image": "tutorials/simple-fix.png"
+        },
+        {
+          "title": "Worst Case Scenario: Version Incompatibility",
+          "content": "In the worst case, the node doesn't exist at all in your FFmpeg version. This requires more work:\n\n<strong>Option 1:</strong> Update or downgrade your FFmpeg to match the workflow's version\n<strong>Option 2:</strong> Find an alternative node that achieves the same result\n<strong>Option 3:</strong> Manually modify the workflow graph to work around the missing functionality\n\nCheck the FFmpeg documentation to understand what the missing node does before attempting replacements.",
+          "image": "tutorials/version-upgrade.png"
+        },
+        {
+          "title": "Prevention Tips",
+          "content": "Reduce the chance of red nodes when sharing workflows:\n\n• <strong>Document your FFmpeg version:</strong> Note which version was used to create the workflow\n• <strong>Use stable filters:</strong> Prefer well-established filters over experimental ones\n• <strong>Test across versions:</strong> If possible, test your workflow on different FFmpeg versions\n• <strong>Include notes:</strong> Add comments explaining critical nodes that might change\n\nWhen importing workflows from others, always check the FFmpeg version requirements first."
+        }
+      ],
+      "conclusion": "Red nodes indicate compatibility issues when importing workflows, usually caused by differences between FFmpeg versions. In simple cases, you only need to find and replace the node with its equivalent in your version. In complex cases, you may need to change your FFmpeg version or modify the workflow manually. Always check node names carefully and test workflows after fixing red nodes to ensure everything works correctly."
     }
   ],
   "categories": [
