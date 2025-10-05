@@ -330,7 +330,7 @@
         {
           "title": "Step 6: Execute and Verify",
           "content": "Click **Execute Graph**. In the Logs tab you’ll see ffmpeg run the overlay filter. Once finished, open the output video and check that your watermark appears at the correct position.",
-          "image": "tutorials/watermark-step6.png"
+          "image": "tutorials/watermark-step6.avif"
         }
       ],
       "conclusion": "You’ve successfully added a watermark overlay using FFStudio! This workflow demonstrates how filters are added as nodes, connected visually, and combined into your transcoding pipeline. From here, you can explore more filters — scaling, cropping, color correction, and more."
