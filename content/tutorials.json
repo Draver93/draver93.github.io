@@ -188,11 +188,15 @@
       "image": "tutorials/custom-ffmpeg-cover.png",
       "tags": ["advanced", "ffmpeg", "custom", "filters", "codecs"],
       "intro": "One of FFStudio’s most powerful features is the ability to work with **any ffmpeg binary you provide**. This is essential for developers and engineers who compile custom builds with experimental filters, hardware acceleration, or proprietary codecs. Instead of locking you into a predefined ffmpeg, FFStudio adapts dynamically to your binary and exposes its full functionality in the node graph.",
-      "sections": [
+      "sections": [         
+        {
+          "title": "Video tutorial",
+          "youtubeVideo": "https://youtu.be/YoIVZdTbBgI"
+        },
         {
           "title": "Why Use a Custom Build?",
           "content": "The official ffmpeg releases are powerful, but many production workflows rely on custom builds that include:\n- Hardware-specific acceleration (e.g., CUDA, NVENC, QuickSync)\n- Proprietary or experimental codecs\n- Custom filters or muxers not available in the stock build\n\nFFStudio makes it possible to load these builds directly and use their features in the graph interface."
-        },
+        }, 
         {
           "title": "Setting the ffmpeg Path",
           "content": "Every workflow in FFStudio has a configurable ffmpeg path:\n- In the **Workflows sidebar**, locate your workflow entry\n- Enter the full path to your custom `ffmpeg` binary\n- Optionally set additional environment variables, such as `LD_LIBRARY_PATH` for shared libraries\n\nThis ensures that all parsing, node generation, and execution are based on *your* binary.",

@@ -179,31 +179,34 @@ class TutorialReader {
     }
 
     createSectionContent(section, index) {
-        let formatted_content = "";
-        const blocks = section.content.split(/\n/); // split by 2+ newlines (paragraphs)
+        let sectionContent = "";
+        if(section.content) {
+            let formatted_content = "";
+            const blocks = section.content.split(/\n/); // split by 2+ newlines (paragraphs)
 
-        blocks.forEach(block => {
-            block = block.trim().replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+            blocks.forEach(block => {
+                block = block.trim().replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 
-            // Detect code block starting with ```bash
-            const codeMatch = block.match(/^```(bash)?([\s\S]+?)```$/);
-            if (codeMatch) {
-                const codeContent = codeMatch[2];
-                formatted_content += `<pre><code class="language-bash">${codeContent}</code></pre>`;
-            } else {
-                // Replace single newlines with <br> inside paragraphs
-                const formatted = block.replace(/\n/g, '<br>');
-                formatted_content += `<p>${formatted}</p>`;
-            }
-        });
+                // Detect code block starting with ```bash
+                const codeMatch = block.match(/^```(bash)?([\s\S]+?)```$/);
+                if (codeMatch) {
+                    const codeContent = codeMatch[2];
+                    formatted_content += `<pre><code class="language-bash">${codeContent}</code></pre>`;
+                } else {
+                    // Replace single newlines with <br> inside paragraphs
+                    const formatted = block.replace(/\n/g, '<br>');
+                    formatted_content += `<p>${formatted}</p>`;
+                }
+            });
 
-        let sectionContent = `
-            <div class="tutorial-section" id="section-${index}">
-                <h3>${section.title}</h3>
-                ${formatted_content}  <!-- don't wrap all content in <p> -->
-            </div>
-        `;
-        
+            sectionContent += `
+                <div class="tutorial-section" id="section-${index}">
+                    <h3>${section.title}</h3>
+                    ${formatted_content}  <!-- don't wrap all content in <p> -->
+                </div>
+            `;
+        }
+
         // Add image if available
         if (section.image) {
             sectionContent += `
