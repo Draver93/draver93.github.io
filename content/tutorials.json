@@ -13,6 +13,11 @@
       "intro": "FFmpeg is the foundation of modern media processing. It powers transcoding farms, streaming services, broadcast automation, and countless editing pipelines. But building and maintaining large, reliable FFmpeg workflows often means juggling complex commands, testing variations, and dealing with long scripts. FFStudio was created to change that — a graph-based interface that exposes *all* of FFmpeg, while giving engineers clarity, flexibility, and speed.",
       "sections": [
         {
+          "title": "Installation guide",
+          "content": "",
+          "youtubeVideo": "https://www.youtube.com/watch?v=Hb-KCELzTec"
+        },
+        {
           "title": "The Challenge of CLI Workflows",
           "content": "Here’s a typical command you might use in FFmpeg:\n\n```bash ffmpeg -i input.mp4 -i logo.png -filter_complex \"[0:v]scale=1280:720[v0]; [v0][1:v]overlay=10:10:enable='between(t,0,20)'[vout]\" -map \"[vout]\" -map 0:a:0 -c:v libx264 -b:v 2500k -c:a aac -b:a 128k output.mp4```\n\nThis one command scales a video to 720p, overlays a logo for the first 20 seconds, keeps the first audio track, and encodes with H.264 + AAC. It’s powerful — but it’s also hard to read, debug, or extend when your pipeline grows to multiple filters, mappings, or outputs.",
           "image": "tutorials/cli-long-command.png" 
