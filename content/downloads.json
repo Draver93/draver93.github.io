@@ -12,7 +12,7 @@
     {
       "id": "macos",
       "name": "macOS",
-      "description": "For macOS 10.15+",
+      "description": "For macOS 13+",
       "icon": "fab fa-apple",
       "downloadUrl": "#"
     },
