@@ -98,7 +98,6 @@ Icons are provided by Font Awesome 6.4.0 via CDN.
 ## Development
 
 To modify the website:
-
 1. **Content**: Edit JSON files in the `content/` folder (recommended)
 2. **HTML Structure**: Edit `index.html` for structural changes
 3. **Styling**: Modify `css/styles.css` for design changes
