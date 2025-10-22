@@ -1,6 +1,6 @@
 {
-  "currentVersion": "0.2.2",
-  "releaseDate": "October 11, 2025",
+  "currentVersion": "0.2.3",
+  "releaseDate": "October 22, 2025",
   "platforms": [
     {
       "id": "windows",
@@ -19,7 +19,7 @@
     {
       "id": "linux",
       "name": "Linux",
-      "description": ".deb package available",
+      "description": "For Ubuntu latest",
       "icon": "fab fa-linux",
       "downloadUrl": "#"
     }
