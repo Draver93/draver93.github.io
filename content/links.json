@@ -27,8 +27,8 @@
     "eula": "/LICENSE.md"
   },
   "downloads": {
-    "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.2.3/FFStudio_0.2.3_x64_en-US-1ef1e87.msi",
-    "macos": "https://github.com/Draver93/ff-studio/releases/download/v0.2.3/FFStudio_0.2.3_aarch64-238ca67.dmg",
+    "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.2.3/FFStudio_0.2.3_x64_en-US-49a6e2d.msi",
+    "macos": "https://github.com/Draver93/ff-studio/releases/download/v0.2.3/FFStudio_0.2.3_aarch64-49a6e2d.dmg",
     "linux": "https://github.com/Draver93/ff-studio/releases/download/v0.2.3/FFStudio_0.2.3_amd64.deb",
     "android": ""
   },
