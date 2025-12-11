@@ -28,7 +28,7 @@
   },
   "downloads": {
     "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.2.4/FFStudio_0.2.4_x64_en-US-804dcea.msi",
-    "macos": "https://github.com/Draver93/ff-studio/releases/download/v0.2.4/FFStudio_0.2.4_aarch64-804dcea.dmg",
+    "macos": "",
     "linux": "https://github.com/Draver93/ff-studio/releases/download/v0.2.4/FFStudio_0.2.4_amd64.deb",
     "android": ""
   },
