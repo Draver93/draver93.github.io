@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <style>
+        .license-wrap {
+            white-space: pre-wrap;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="license-wrap">Loading license…</div>
+    <script>
+        fetch('/LICENSE')
+            .then(res => res.text())
+            .then(text => {
+                document.querySelector('.license-wrap').textContent = text;
+            })
+            .catch(err => {
+                document.querySelector('.license-wrap').textContent =
+                    'Unable to load the LICENSE file.';
+                console.error(err);
+            });
+    </script>
+</body>
+
+</html>

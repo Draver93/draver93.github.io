@@ -23,8 +23,8 @@
     "reportIssue": "",
     "privacypolicy": "/PRIVACY.md",
     "termsofservice": "/TERMS.md",
-    "license": "/LICENSE.md",
-    "eula": "/LICENSE.md"
+    "license": "license-viewer.html",
+    "eula": "license-viewer.html"
   },
   "downloads": {
     "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.2.4/FFStudio_0.2.4_x64_en-US-804dcea.msi",
