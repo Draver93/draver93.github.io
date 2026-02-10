@@ -27,9 +27,16 @@
     "eula": "license-viewer.html"
   },
   "downloads": {
-    "windows": "https://github.com/Draver93/ff-studio/releases/download/v0.2.5/FFStudio_0.2.5_x64_en-US-51db9c9.msi",
-    "macos": "https://github.com/Draver93/ff-studio/releases/download/v0.2.5/FFStudio-macos.zip",
-    "linux": "https://github.com/Draver93/ff-studio/releases/download/v0.2.5/FFStudio_0.2.5_amd64.deb",
+    "windows": {
+      "exe": "https://github.com/Draver93/ff-studio/releases/download/v0.2.6/FFStudio_0.2.6_x64_en-US-ce3a060.msi"
+    },
+    "macos": {
+      "dmg": "https://github.com/Draver93/ff-studio/releases/download/v0.2.6/FFStudio-macos.zip"
+    },
+    "linux": {
+      "deb": "https://github.com/Draver93/ff-studio/releases/download/v0.2.6/FFStudio_0.2.6_amd64.deb",
+      "AppImage": "https://github.com/Draver93/ff-studio/releases/download/v0.2.6/FFStudio_0.2.6_amd64-ce3a060.AppImage"
+    },
     "android": ""
   },
   "tutorials": {

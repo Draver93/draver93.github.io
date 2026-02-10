@@ -510,6 +510,9 @@ nav a.active {
 }
 
 .platform-card {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
     background: var(--card-bg);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
@@ -542,6 +545,7 @@ nav a.active {
 }
 
 .download-btn {
+    margin: 5px;
     padding: 12px 25px;    
     background: var(--success-color);
     color: var(--text-color);
@@ -1073,4 +1077,12 @@ footer {
     .mobile-menu-btn {
         display: block;
     }
+}
+
+/* Add ellipsis from the beginning for text overflow */
+.ellipsis-start {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    direction: rtl;
 }

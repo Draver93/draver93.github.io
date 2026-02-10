@@ -326,24 +326,11 @@ class ContentLoader {
         const versionInfo = document.querySelector('.version-info p');
         
         if (!platformCards) return;
-        `
-                <div class="platform-card windows-card">
-                    <div class="warning-bar">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>Windows Defender may flag this download</span>
-                    </div>
-                    <div class="platform-icon">
-                        <i class="fab fa-windows"></i>
-                    </div>
-                    <h3>Windows</h3>
-                    <p>For Windows 10 and 11</p>
-                    <a href="#" class="download-btn">Download</a>
-                </div>
-        `
+
         platformCards.innerHTML = downloads.platforms.map(platform => {
-            const downloadUrl = links.downloads[platform.id] || platform.downloadUrl;
-            const isAvailable = downloadUrl && downloadUrl.trim() !== '' && downloadUrl !== '#';
-            
+            const downloadUrls = links.downloads[platform.id] || platform.downloadUrls;
+            const isAvailable = downloadUrls && Object.keys(downloadUrls).length > 0;
+
             return `
                 <div class="platform-card ${!isAvailable ? 'platform-unavailable' : ''} ${platform.id === 'windows' ? 'windows-card' : ''}" data-platform="${platform.id}">
                     ${platform.id === 'windows' ? 
@@ -358,8 +345,8 @@ class ContentLoader {
                     <h3>${platform.name}</h3>
                     <p>${platform.description}</p>
                     ${isAvailable ? 
-                        `<a href="${downloadUrl}" class="download-btn">Download</a>` :
-                        `<button class="download-btn download-btn-disabled" disabled>Coming Soon</button>`
+                        Object.entries(downloadUrls).map(([key, url]) => `<a href="${url}" class="download-btn ellipsis-start"">Download .${key}</a>`).join('') :
+                        `<button class="download-btn ellipsis-start download-btn-disabled" disabled>Coming Soon</button>`
                     }
                 </div>
             `;
