@@ -1,0 +1,16 @@
+{
+  "title": "OpenAI Whisper",
+  "description": "Demonstrates how to use OpenAI Whisper to transcribe speech from audio or video content into text.",
+  "image": "assets/images/graphs/whisper.png",
+  "tags": [
+    "whisper",
+    "srt",
+    "transcription"
+  ],
+  "graphs": [
+    {
+      "name": "openai-whisper",
+      "version": "8.0"
+    }
+  ]
+}

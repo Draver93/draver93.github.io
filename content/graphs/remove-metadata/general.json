@@ -1,0 +1,15 @@
+{
+  "title": "Remove metadata",
+  "description": "Strips media files of metadata such as tags, titles, and encoding information.",
+  "image": "assets/images/graphs/clear-metadata.png",
+  "tags": [
+    "metadata",
+    "clear"
+  ],
+  "graphs": [
+    {
+      "name": "remove-metadata",
+      "version": "5.1"
+    }
+  ]
+}

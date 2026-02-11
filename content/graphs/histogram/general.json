@@ -1,0 +1,16 @@
+{
+  "title": "Histogram",
+  "description": "Adds a real-time histogram overlay to the video, showing per-channel color intensity and brightness levels.",
+  "image": "assets/images/graphs/histogram.png",
+  "tags": [
+    "histogram",
+    "scale",
+    "overlay"
+  ],
+  "graphs": [
+    {
+      "name": "histogram",
+      "version": "5.1"
+    }
+  ]
+}

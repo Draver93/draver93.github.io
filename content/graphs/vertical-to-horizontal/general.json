@@ -1,0 +1,17 @@
+{
+  "title": "Vertical to Horizontal",
+  "description": "Transforms Vertical Video to Horizontal Format with Blur Effects.",
+  "image": "assets/images/graphs/vertical-to-horizontal.png",
+  "tags": [
+    "resize",
+    "video",
+    "blur",
+    "crop"
+  ],
+  "graphs": [
+    {
+      "name": "vertical-to-horizontal",
+      "version": "5.1"
+    }
+  ]
+}

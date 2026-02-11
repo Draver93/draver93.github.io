@@ -1,0 +1,16 @@
+{
+  "title": "Picture in Picture",
+  "description": "Applies a picture-in-picture effect where the overlay media can use a custom mask shape, with an added shadow for visual depth.",
+  "image": "assets/images/graphs/picture-in-picture.png",
+  "tags": [
+    "mask",
+    "pip",
+    "overlay"
+  ],
+  "graphs": [
+    {
+      "name": "picture-in-picture",
+      "version": "5.1"
+    }
+  ]
+}

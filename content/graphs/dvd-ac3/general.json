@@ -1,0 +1,17 @@
+{
+  "title": "DVD (AC3)",
+  "description": "DVD-compliant MPEG-2 video with Dolby Digital stereo audio.",
+  "image": "assets/images/graphs/dvd.png",
+  "tags": [
+    "dvd",
+    "mpeg2video",
+    "pal",
+    "ac3"
+  ],
+  "graphs": [
+    {
+      "name": "dvd-ac3",
+      "version": "5.1"
+    }
+  ]
+}

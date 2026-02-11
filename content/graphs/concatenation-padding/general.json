@@ -1,0 +1,16 @@
+{
+  "title": "Concatenation+Padding",
+  "description": "Merges multiple video streams into a single output, adding padding as needed to match sizes.",
+  "image": "assets/images/graphs/concat.png",
+  "tags": [
+    "concat",
+    "pad",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "concatenation-padding",
+      "version": "5.1"
+    }
+  ]
+}

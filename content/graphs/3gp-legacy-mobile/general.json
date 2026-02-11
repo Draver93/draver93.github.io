@@ -1,0 +1,19 @@
+{
+  "title": "3GP Legacy Mobile",
+  "description": "Creates a 3GP file compatible with very old mobile phones (Symbian, Java ME, early Android). Uses H.263 video and AMR-NB audio for maximum compatibility.",
+  "image": "assets/images/graphs/3gp.png",
+  "tags": [
+    "legacy",
+    "3gp",
+    "mobile",
+    "h263",
+    "amr",
+    "low-bitrate"
+  ],
+  "graphs": [
+    {
+      "name": "3gp-legacy-mobile",
+      "version": "5.1"
+    }
+  ]
+}

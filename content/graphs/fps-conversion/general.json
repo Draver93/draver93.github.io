@@ -1,0 +1,15 @@
+{
+  "title": "FPS Conversion",
+  "description": "Modifying the output framerate of a video stream via the fps filter.",
+  "image": "assets/images/graphs/fps.png",
+  "tags": [
+    "fps",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "fps-conversion",
+      "version": "5.1"
+    }
+  ]
+}

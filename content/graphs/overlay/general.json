@@ -1,0 +1,15 @@
+{
+  "title": "Overlay",
+  "description": "Adds an overlay to the video, active during a given time range and positioned at the bottom center.",
+  "image": "assets/images/graphs/overlay.png",
+  "tags": [
+    "overlay",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "overlay",
+      "version": "5.1"
+    }
+  ]
+}

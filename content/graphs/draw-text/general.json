@@ -1,0 +1,15 @@
+{
+  "title": "Draw Text",
+  "description": "Applies text overlays to video, supporting detailed customization of font, size, color, and positioning.",
+  "image": "assets/images/graphs/text.png",
+  "tags": [
+    "drawtext",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "draw-text",
+      "version": "5.1"
+    }
+  ]
+}

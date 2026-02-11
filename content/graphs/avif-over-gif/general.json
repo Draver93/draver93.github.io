@@ -1,0 +1,16 @@
+{
+  "title": "AVIF over GIF",
+  "description": "Implements an AV1-based workflow to produce AVIF animations, offering superior compression and quality compared to traditional GIF formats.",
+  "image": "assets/images/graphs/avif_gif.png",
+  "tags": [
+    "avif",
+    "libaom-av1",
+    "av1"
+  ],
+  "graphs": [
+    {
+      "name": "avif-over-gif",
+      "version": "5.1"
+    }
+  ]
+}

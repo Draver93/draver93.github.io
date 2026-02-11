@@ -1,0 +1,16 @@
+{
+  "title": "Audio Waveform",
+  "description": "Generates a visual representation of the audio waveform, displaying amplitude variations over time.",
+  "image": "assets/images/graphs/wave.png",
+  "tags": [
+    "showwaves",
+    "audio",
+    "wave"
+  ],
+  "graphs": [
+    {
+      "name": "audio-waveform",
+      "version": "5.1"
+    }
+  ]
+}

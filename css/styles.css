@@ -116,6 +116,11 @@
     --z-modal: 1040;
     --z-popover: 1050;
     --z-tooltip: 1060;
+
+    /* Dropdown Colors */
+    --dropdown-bg: #3c4043; /* New dropdown background color */
+    --dropdown-hover-bg: #2c2f33; /* New dropdown hover background color */
+    --dropdown-text: #f1f3f4; /* New dropdown text color */
 }
 
 * {

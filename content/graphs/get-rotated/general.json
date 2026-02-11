@@ -1,0 +1,15 @@
+{
+  "title": "Get Rotated",
+  "description": "Applies a rotation transform, allowing the video to be rotated to any angle.",
+  "image": "assets/images/graphs/rotate.png",
+  "tags": [
+    "rotate",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "get-rotated",
+      "version": "5.1"
+    }
+  ]
+}

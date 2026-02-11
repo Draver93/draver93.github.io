@@ -1,0 +1,17 @@
+{
+  "title": "PNG2AVIF",
+  "description": "Converts a PNG image to AVIF format using the libaom-av1 codec, showcasing efficient image compression with modern AV1 standards(Alpha preserved).",
+  "image": "assets/images/graphs/png2avif.png",
+  "tags": [
+    "png",
+    "avif",
+    "libaom-av1",
+    "av1"
+  ],
+  "graphs": [
+    {
+      "name": "png2avif",
+      "version": "5.1"
+    }
+  ]
+}

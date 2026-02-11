@@ -87,19 +87,42 @@
 }
 
 .graph-text-container {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
     margin-top: auto;
 }
 
 .graph-input-wrapper {
     display: flex;
+    justify-content: end;
+    width: 100%;
     background: var(--input-bg);
     border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid var(--border-color);
 }
 
+.version-select {
+    background: var(--dropdown-bg); 
+    color: var(--dropdown-text); 
+    padding: var(--space-xs);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    border-radius: var(--radius-md);
+    order: -1; 
+    outline: none; 
+    box-shadow: none; 
+}
+
+.version-select:hover {
+    background: var(--dropdown-hover-bg);
+}
+
 .graph-input {
     flex: 1;
+    width: 100%;
     padding: var(--space-sm);
     background: transparent;
     border: none;

@@ -1,0 +1,15 @@
+{
+  "title": "Crop",
+  "description": "Applies a video crop operation with the crop area positioned relative to the center of the frame.",
+  "image": "assets/images/graphs/crop.png",
+  "tags": [
+    "crop",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "crop",
+      "version": "5.1"
+    }
+  ]
+}

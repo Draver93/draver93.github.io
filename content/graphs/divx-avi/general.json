@@ -1,0 +1,19 @@
+{
+  "title": "DivX AVI",
+  "description": "Generic DivX/Xvid-compatible AVI for old players. User defines resolution and bitrate. Works on most USB/DVD players and older TVs.",
+  "image": "assets/images/graphs/xvid.png",
+  "tags": [
+    "legacy",
+    "avi",
+    "divx",
+    "xvid",
+    "mp3",
+    "mpeg4"
+  ],
+  "graphs": [
+    {
+      "name": "divx-avi",
+      "version": "5.1"
+    }
+  ]
+}

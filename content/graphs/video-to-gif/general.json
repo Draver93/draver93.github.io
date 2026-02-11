@@ -1,0 +1,9 @@
+{
+    "title": "Video to GIF",
+    "description": "Converting video to gif through a palette.",
+    "image": "assets/images/graphs/gif-conversion.avif",
+    "tags": ["gif", "palette"],
+    "graphs": [
+        { "name": "video-to-gif", "version": "5.1" }
+    ]
+}

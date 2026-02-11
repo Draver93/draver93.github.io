@@ -1,0 +1,16 @@
+{
+  "title": "HTTP Live Streaming(HLS)",
+  "description": "Implements a base transcoding pipeline for generating HLS output with adaptive bitrate streams at 1080p, 720p, and 480p resolutions.",
+  "image": "assets/images/graphs/hls.png",
+  "tags": [
+    "m3u8",
+    "hls",
+    "abr"
+  ],
+  "graphs": [
+    {
+      "name": "http-live-streaming-hls",
+      "version": "5.1"
+    }
+  ]
+}

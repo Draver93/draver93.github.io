@@ -1,0 +1,9 @@
+{
+    "title": "Per Channel Volume Adjustment",
+    "description": "Adjusts the audio volume of each channel (left/right) independently. Useful for balancing audio levels in stereo recordings.",
+    "image": "assets/images/graphs/per_ch_processing.png",
+    "tags": ["channelsplit", "audio", "volume", "stereo"],
+    "graphs": [
+        { "name": "pre-channel-volume-adjustment", "version": "8.0" }
+    ]
+}

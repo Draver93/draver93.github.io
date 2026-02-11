@@ -1,0 +1,9 @@
+{
+    "title": "Simple Countdown Timer",
+    "description": "Creates a simple countdown timer and can be customized with different fonts, sizes, and colors.",
+    "image": "assets/images/graphs/timer.png",
+    "tags": ["drawtext", "timer"],
+    "graphs": [
+        { "name": "simple-countdown-timer", "version": "7.1" }
+    ]
+}

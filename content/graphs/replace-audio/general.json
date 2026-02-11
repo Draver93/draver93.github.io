@@ -1,0 +1,15 @@
+{
+  "title": "Replace Audio",
+  "description": "Removes the original audio stream and inserts a new one, repeating it in a loop until the video duration is filled.",
+  "image": "assets/images/graphs/replace_audio.png",
+  "tags": [
+    "replace",
+    "audio"
+  ],
+  "graphs": [
+    {
+      "name": "replace-audio",
+      "version": "5.1"
+    }
+  ]
+}

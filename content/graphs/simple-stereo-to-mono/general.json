@@ -1,0 +1,9 @@
+{
+    "title": "Simple Stereo to Mono",
+    "description": "Merges a stereo audio track into a single mono track by combining the left and right channels equally. Ideal for converting stereo recordings to mono format.",
+    "image": "assets/images/graphs/per_ch_processing.png",
+    "tags": ["ac", "audio", "stereo", "mono"],
+    "graphs": [
+        { "name": "simple-stereo-to-mono", "version": "8.0" }
+    ]
+}

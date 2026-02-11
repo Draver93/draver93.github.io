@@ -1,0 +1,16 @@
+{
+  "title": "HDR to SDR",
+  "description": "Performs HDR-to-SDR conversion with tone mapping and resizes the video to 1920\u00d71080 (Full HD).",
+  "image": "assets/images/graphs/hdr2sdr.png",
+  "tags": [
+    "hdr",
+    "sdr",
+    "conversion"
+  ],
+  "graphs": [
+    {
+      "name": "hdr-to-sdr",
+      "version": "5.1"
+    }
+  ]
+}

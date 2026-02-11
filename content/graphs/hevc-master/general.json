@@ -1,0 +1,16 @@
+{
+  "title": "HEVC Master",
+  "description": "Optimizes your videos using the H.265/HEVC codec for maximum compression without sacrificing visual quality.",
+  "image": "assets/images/graphs/h265.png",
+  "tags": [
+    "HEVC",
+    "H.265",
+    "aac"
+  ],
+  "graphs": [
+    {
+      "name": "hevc-master",
+      "version": "5.1"
+    }
+  ]
+}

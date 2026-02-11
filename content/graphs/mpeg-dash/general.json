@@ -1,0 +1,16 @@
+{
+  "title": "MPEG DASH",
+  "description": "Implements a base transcoding pipeline for generating MPEG-DASH output with adaptive bitrate streams at 1080p, 720p, and 480p resolutions.",
+  "image": "assets/images/graphs/dash-export.png",
+  "tags": [
+    "mpd",
+    "dash",
+    "abr"
+  ],
+  "graphs": [
+    {
+      "name": "mpeg-dash",
+      "version": "5.1"
+    }
+  ]
+}

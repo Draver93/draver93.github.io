@@ -1,0 +1,15 @@
+{
+  "title": "Deinterlacing",
+  "description": "Removes interlacing artifacts from video, converting it into smooth progressive frames.",
+  "image": "assets/images/graphs/deinterlace.png",
+  "tags": [
+    "yadif",
+    "qp"
+  ],
+  "graphs": [
+    {
+      "name": "deinterlacing",
+      "version": "5.1"
+    }
+  ]
+}

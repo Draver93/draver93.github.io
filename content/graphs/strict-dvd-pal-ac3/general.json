@@ -1,0 +1,12 @@
+{
+  "title": "Strict DVD (PAL / AC3)",
+  "description": "Fully DVD-compliant PAL format. Encodes MPEG-2 video with AC-3 audio at 720x576 @ 25fps.",
+  "image": "assets/images/graphs/dvd_pal.png",
+  "tags": ["dvd", "pal", "ac3"],
+  "graphs": [
+    {
+      "name": "strict-dvd-pal-ac3",
+      "version": "5.1"
+    }
+  ]
+}

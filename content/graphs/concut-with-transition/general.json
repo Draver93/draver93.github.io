@@ -1,0 +1,9 @@
+{
+    "title": "Concat with transition effect",
+    "description": "This graph demonstrates how to concatenate two video segments with a transition effect applied between them. It showcases the flexibility of FFmpeg in creating smooth transitions, such as fades, wipes, or slides, allowing for creative video editing possibilities.",
+    "image": "assets/images/graphs/transition.png",
+    "tags": ["fade", "concat", "trim"],
+    "graphs": [
+        { "name": "concut-with-transition", "version": "7.1" }
+    ]
+}

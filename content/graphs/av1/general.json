@@ -1,0 +1,16 @@
+{
+  "title": "AV1",
+  "description": "Demonstrates encoding video with the libaom-av1 codec, enabling efficient compression with modern AV1 standards.",
+  "image": "assets/images/graphs/av1.png",
+  "tags": [
+    "avif",
+    "libaom-av1",
+    "av1"
+  ],
+  "graphs": [
+    {
+      "name": "av1",
+      "version": "5.1"
+    }
+  ]
+}

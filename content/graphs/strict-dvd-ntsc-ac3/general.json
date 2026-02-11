@@ -1,0 +1,12 @@
+{
+  "title": "Strict DVD (NTSC / AC3)",
+  "description": "Fully DVD-compliant MPEG-2 with Dolby Digital. Output 720x480 @ 29.97fps for North American DVD authoring or playback.",
+  "image": "assets/images/graphs/dvd_ntsc.png",
+  "tags": ["dvd", "ntsc", "ac3"],
+  "graphs": [
+    {
+      "name": "strict-dvd-ntsc-ac3",
+      "version": "5.1"
+    }
+  ]
+}

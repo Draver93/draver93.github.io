@@ -1,0 +1,9 @@
+{
+    "title": "Extract Audio (No re-encoding)",
+    "description": "Extracts the audio stream from a video file without re-encoding, preserving the original audio quality.",
+    "image": "assets/images/graphs/audio_extract.png",
+    "tags": ["audio", "copy", "extract"],
+    "graphs": [
+        { "name": "extract-audio-no-re-encoding", "version": "7.1" }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Extract picture from a Video",
+  "description": "This graph demonstrates how to extract a single frame (the 100th) from a video stream.",
+  "image": "assets/images/graphs/frame_extraction.png",
+  "tags": [
+    "frame",
+    "video",
+    "extraction"
+  ],
+  "graphs": [
+    {
+      "name": "extract-picture-from-a-video",
+      "version": "5.1"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Trimming(No re'Encoding)",
+  "description": "Modifying the output duration of a media via the -ss and -t flags.",
+  "image": "assets/images/graphs/simple_trim.png",
+  "tags": ["trim", "-ss", "-t", "flags"],
+  "graphs": [
+    {
+      "name": "trimming-no-re-encoding",
+      "version": "5.1"
+    }
+  ]
+}

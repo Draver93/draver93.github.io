@@ -1,0 +1,16 @@
+{
+  "title": "Chroma Key",
+  "description": "Uses chroma keying to remove a background color and overlay the subject onto another video.",
+  "image": "assets/images/graphs/chroma-key.png",
+  "tags": [
+    "overlay",
+    "video",
+    "green screen"
+  ],
+  "graphs": [
+    {
+      "name": "chroma-key",
+      "version": "5.1"
+    }
+  ]
+}

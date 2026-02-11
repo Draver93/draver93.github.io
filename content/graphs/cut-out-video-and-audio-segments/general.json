@@ -1,0 +1,9 @@
+{
+    "title": "Cut Out Video and Audio Segments",
+    "description": "Removes specific time segments from both video and audio streams. Useful for editing out unwanted sections from multimedia files.",
+    "image": "assets/images/graphs/cutout.png",
+    "tags": ["select", "aselect", "cut"],
+    "graphs": [
+        { "name": "cut-out-video-and-audio-segments", "version": "7.1" }
+    ]
+}

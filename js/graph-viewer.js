@@ -95,12 +95,33 @@ class GraphLibrary {
         this.showLoading();
         
         try {
-            const response = await fetch('content/graphs.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            const response = await fetch('content/graphs/general.json');
+            if (!response.ok) { throw new Error(`Failed to fetch graph list: ${response.status}`); }
             
-            this.entries = await response.json();
+            const data = await response.json();
+            const graphNames = data.graphs;
+            this.entries = [];
+            for (const graphName of graphNames) {
+                const generalResponse = await fetch(`content/graphs/${graphName}/general.json`);
+                if (!generalResponse.ok) {
+                    throw new Error(`HTTP error! status: ${generalResponse.status}`);
+                }
+
+                const generalData = await generalResponse.json();
+                const versionPromises = generalData.graphs.map(async (graph) => {
+                    const versionedResponse = await fetch(`content/graphs/${graphName}/ffmpeg_${graph.version}.json`);
+                    if (!versionedResponse.ok) {
+                        throw new Error(`HTTP error! status: ${versionedResponse.status}`);
+                    }
+                    const versionedData = await versionedResponse.text();
+                    return {
+                        version: graph.version,
+                        graphData: versionedData
+                    };
+                });
+                const versions = await Promise.all(versionPromises);
+                this.entries.push({ ...generalData, versions }); 
+            }
             this.filteredEntries = [...this.entries];
             this.entriesPerPage = parseInt(this.pageSizeSelect?.value || 12);
             
@@ -204,11 +225,6 @@ class GraphLibrary {
         const entryDiv = document.createElement('div');
         entryDiv.className = 'graph-entry';
 
-        // Graph type badge
-        const badgeEl = document.createElement('span');
-        badgeEl.className = 'graph-type-badge';
-        entryDiv.appendChild(badgeEl);
-
         // Title
         const titleEl = document.createElement('h2');
         titleEl.textContent = entry.title;
@@ -243,14 +259,25 @@ class GraphLibrary {
             entryDiv.appendChild(tagsContainer);
         }
 
+        // Version dropdown
+        const versionSelect = document.createElement('select');
+        versionSelect.className = 'version-select';
+        entry.versions.forEach(version => {
+            const option = document.createElement('option');
+            option.value = version.version;
+            option.textContent = `FFmpeg ${version.version}`;
+            versionSelect.appendChild(option);
+        });
+        entryDiv.appendChild(versionSelect);
+
         // Graph input + copy button
-        const graphContainer = this.createGraphInputContainer(entry);
+        const graphContainer = this.createGraphInputContainer(entry, versionSelect);
         entryDiv.appendChild(graphContainer);
 
         return entryDiv;
     }
 
-    createGraphInputContainer(entry) {
+    createGraphInputContainer(entry, versionSelect) {
         const container = document.createElement('div');
         container.className = 'graph-text-container';
 
@@ -260,7 +287,7 @@ class GraphLibrary {
         const input = document.createElement('input');
         input.type = 'text';
         input.readOnly = true;
-        input.value = JSON.stringify(entry.graphData);
+        input.value = entry.versions[0].graphData; // Default to the first version
         input.className = 'graph-input';
         input.title = 'Click to select graph template data';
 
@@ -269,10 +296,26 @@ class GraphLibrary {
             input.select();
         });
 
-        const copyBtn = this.createCopyButton(JSON.stringify(entry.graphData));
+        const copyBtn = this.createCopyButton(input.value);
         wrapper.appendChild(input);
         wrapper.appendChild(copyBtn);
+
+        // Move the versionSelect dropdown into the wrapper
+        container.appendChild(versionSelect);
+
         container.appendChild(wrapper);
+
+        // Update input and copy button when version changes
+        versionSelect.addEventListener('change', (e) => {
+            const selectedVersion = e.target.value;
+            const selectedGraph = entry.versions.find(v => v.version === selectedVersion);
+            if (selectedGraph) {
+                input.value = JSON.stringify(selectedGraph.graphData, null, 2);
+                copyBtn.onclick = async () => {
+                    await this.handleCopy(input.value, copyBtn);
+                };
+            }
+        });
 
         return container;
     }

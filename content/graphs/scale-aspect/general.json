@@ -1,0 +1,16 @@
+{
+  "title": "Scale+Aspect",
+  "description": "Resizing video with a user-defined aspect ratio.",
+  "image": "assets/images/graphs/scale.png",
+  "tags": [
+    "scale",
+    "aspect",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "scale-aspect",
+      "version": "5.1"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "title": "Extract Video (No re-encoding)",
+    "description": "Extracts the video stream from a multimedia file without re-encoding, preserving the original video quality.",
+    "image": "assets/images/graphs/video_extract.png",
+    "tags": ["video", "copy", "extract"],
+    "graphs": [
+        { "name": "extract-video-no-re-encoding", "version": "7.1" }
+    ]
+}

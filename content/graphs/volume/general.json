@@ -1,0 +1,17 @@
+{
+  "title": "Volume",
+  "description": "Applies the volume filter to increase, decrease, or normalize the audio loudness.",
+  "image": "assets/images/graphs/volume.png",
+  "tags": [
+    "volume",
+    "audio",
+    "dB",
+    "filter"
+  ],
+  "graphs": [
+    {
+      "name": "volume",
+      "version": "5.1"
+    }
+  ]
+}

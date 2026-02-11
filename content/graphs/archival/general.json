@@ -1,0 +1,12 @@
+{
+  "title": "Archival (Universal)",
+  "description": "Highly compatible AVI format for long-term storage or sharing. Uses MPEG-4 video and MP3 audio for guaranteed playback on almost any device or OS, old or new.",
+  "image": "assets/images/graphs/archive.png",
+  "tags": ["archival", "universal", "avi", "mpeg4", "divx", "xvid", "mp3"],
+  "graphs": [
+    {
+      "name": "volume",
+      "version": "5.1"
+    }
+  ]
+}

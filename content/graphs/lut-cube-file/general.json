@@ -1,0 +1,16 @@
+{
+  "title": "LUT (cube file)",
+  "description": "Uses LUTs defined in cube files to adjust and enhance video colors for professional color grading.",
+  "image": "assets/images/graphs/lut.png",
+  "tags": [
+    "lut3d",
+    "cube",
+    "color"
+  ],
+  "graphs": [
+    {
+      "name": "lut-cube-file",
+      "version": "5.1"
+    }
+  ]
+}

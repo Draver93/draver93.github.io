@@ -1,0 +1,16 @@
+{
+  "title": "Chromatic Aberration",
+  "description": "Provides a simple example of chromatic aberration by separating color channels, altering per-channel data, and merging them back into a final video.",
+  "image": "assets/images/graphs/chromatic_aberration.png",
+  "tags": [
+    "lutrgb",
+    "blend",
+    "color"
+  ],
+  "graphs": [
+    {
+      "name": "chromatic-aberration",
+      "version": "5.1"
+    }
+  ]
+}

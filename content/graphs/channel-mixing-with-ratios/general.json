@@ -1,0 +1,9 @@
+{
+    "title": "Channel mixing with ratios",
+    "description": "Mixes audio channels with specified volume ratios for each input channel. Useful for creating custom stereo mixes from multi-channel audio sources.",
+    "image": "assets/images/graphs/per_ch_processing.png",
+    "tags": ["pan", "audio", "mix", "stereo"],
+    "graphs": [
+        { "name": "channel-mixing-with-ratios", "version": "8.0" }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Denoise video",
+  "description": "Implements a best-practice workflow for video denoising, using filters and techniques widely recommended by the FFmpeg community.",
+  "image": "assets/images/graphs/denoise.png",
+  "tags": [
+    "denoise",
+    "video"
+  ],
+  "graphs": [
+    {
+      "name": "denoise-video",
+      "version": "5.1"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Multiple SRT Subtitles",
+  "description": "Shows how to add multiple SRT subtitle files to a video into an MKV container without re-encoding.",
+  "image": "assets/images/graphs/srt.png",
+  "tags": [
+    "subtitles",
+    "srt",
+    "mkv"
+  ],
+  "graphs": [
+    {
+      "name": "multiple-srt-subtitles",
+      "version": "5.1"
+    }
+  ]
+}

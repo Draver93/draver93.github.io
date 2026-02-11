@@ -1,0 +1,16 @@
+{
+  "title": "Split mp4 VA streams",
+  "description": "Extracting audio and video streams into individual containers without re-encoding",
+  "image": "assets/images/graphs/split-mp4.png",
+  "tags": [
+    "copy",
+    "mp4",
+    "split"
+  ],
+  "graphs": [
+    {
+      "name": "split-mp4-va-streams",
+      "version": "7.1"
+    }
+  ]
+}
