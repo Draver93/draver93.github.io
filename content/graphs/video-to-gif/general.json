@@ -4,6 +4,6 @@
     "image": "assets/images/graphs/gif-conversion.avif",
     "tags": ["gif", "palette"],
     "graphs": [
-        { "name": "video-to-gif", "version": "5.1" }
+        { "name": "video-to-gif", "version": "4.1-8.0" }
     ]
 }

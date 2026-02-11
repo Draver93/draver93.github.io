@@ -4,6 +4,8 @@
     "image": "assets/images/graphs/audio_extract.png",
     "tags": ["audio", "copy", "extract"],
     "graphs": [
-        { "name": "extract-audio-no-re-encoding", "version": "7.1" }
+        { "name": "extract-audio-no-re-encoding", "version": "3.2-4.2" },
+        { "name": "extract-audio-no-re-encoding", "version": "4.4-6.1" },
+        { "name": "extract-audio-no-re-encoding", "version": "7.1-8.0" }
     ]
 }

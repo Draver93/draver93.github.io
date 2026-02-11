@@ -181,7 +181,7 @@ class GraphLibrary {
                 const inTags = entry.tags && entry.tags.some(tag => 
                     tag.toLowerCase().includes(query)
                 );
-                const inGraphData = JSON.stringify(entry.graphData).toLowerCase().includes(query);
+                const inGraphData = entry.graphData.toLowerCase().includes(query);
                 
                 return inTitle || inDesc || inTags || inGraphData;
             });
@@ -312,7 +312,7 @@ class GraphLibrary {
             const selectedVersion = e.target.value;
             const selectedGraph = entry.versions.find(v => v.version === selectedVersion);
             if (selectedGraph) {
-                input.value = JSON.stringify(selectedGraph.graphData, null, 2);
+                input.value = selectedGraph.graphData;
                 copyBtn.onclick = async () => {
                     await this.handleCopy(input.value, copyBtn);
                 };
