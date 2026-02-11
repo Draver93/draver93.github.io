@@ -7,9 +7,8 @@
     "filter"
   ],
   "graphs": [
-    {
-      "name": "overlay",
-      "version": "5.1"
-    }
+    { "name": "overlay", "version": "3.2-4.2" },
+    { "name": "overlay", "version": "4.4.1-7.1.1" },
+    { "name": "overlay", "version": "8.0" }
   ]
 }
