@@ -10,7 +10,7 @@
   "graphs": [
     {
       "name": "split-mp4-va-streams",
-      "version": "7.1"
+      "version": "7.1-8.0"
     }
   ]
 }
