@@ -100,8 +100,7 @@ class GraphLibrary {
             
             const data = await response.json();
             const graphNames = data.graphs;
-            this.entries = [];
-            for (const graphName of graphNames) {
+            const entryPromises = graphNames.map(async (graphName) => {
                 const generalResponse = await fetch(`content/graphs/${graphName}/general.json`);
                 if (!generalResponse.ok) {
                     throw new Error(`HTTP error! status: ${generalResponse.status}`);
@@ -120,8 +119,11 @@ class GraphLibrary {
                     };
                 });
                 const versions = await Promise.all(versionPromises);
-                this.entries.push({ ...generalData, versions }); 
-            }
+
+                return { ...generalData, versions };
+            });
+
+            this.entries = await Promise.all(entryPromises);
             this.filteredEntries = [...this.entries];
             this.entriesPerPage = parseInt(this.pageSizeSelect?.value || 12);
             
