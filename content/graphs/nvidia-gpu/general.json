@@ -1,0 +1,11 @@
+{
+  "title": "Nvidia GPU Acceleration(10-bit HEVC to H264)",
+  "description": "Converts HEVC video to H264 using Nvidia GPU acceleration.",
+  "image": "assets/images/graphs/nvidia-gpu.png",
+  "tags": [
+    "cuda", "hevc", "h264", "nvidia", "gpu", "HDR"
+  ],
+  "graphs": [
+    { "name": "nvidia-gpu", "version": "5.1-8.0" }
+  ]
+}

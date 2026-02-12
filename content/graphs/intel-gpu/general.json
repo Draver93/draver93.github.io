@@ -1,9 +1,9 @@
 {
-  "title": "Intel GPU Acceleration(HEVC to H264)",
+  "title": "Intel GPU Acceleration(10-bit HEVC to H264)",
   "description": "Converts HEVC video to H264 using Intel GPU acceleration.",
   "image": "assets/images/graphs/intel-gpu.png",
   "tags": [
-    "qsv", "hevc", "h264", "intel", "gpu"
+    "qsv", "hevc", "h264", "intel", "gpu", "HDR"
   ],
   "graphs": [
     { "name": "intel-gpu", "version": "4.2" },

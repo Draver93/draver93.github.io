@@ -1,6 +1,7 @@
 {
   "graphs": [
     "intel-gpu",
+    "nvidia-gpu",
     "video-to-gif",
     "simple-countdown-timer",
     "extract-audio-no-re-encoding",
