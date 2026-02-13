@@ -181,9 +181,8 @@ class GraphLibrary {
                 const inTags = entry.tags && entry.tags.some(tag => 
                     tag.toLowerCase().includes(query)
                 );
-                const inGraphData = entry.graphData.toLowerCase().includes(query);
                 
-                return inTitle || inDesc || inTags || inGraphData;
+                return inTitle || inDesc || inTags;
             });
         }
         
