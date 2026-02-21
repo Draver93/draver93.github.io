@@ -1,5 +1,6 @@
 {
   "graphs": [
+    "proresraw",
     "intel-gpu",
     "nvidia-gpu",
     "video-to-gif",

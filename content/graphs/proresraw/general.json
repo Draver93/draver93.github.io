@@ -1,0 +1,17 @@
+{
+  "title": "ProRes RAW to broadcast mxf",
+  "description": "Converts ProRes RAW video to broadcast mxf format.",
+  "image": "assets/images/graphs/proresraw.png",
+  "tags": [
+    "proresraw", 
+    "broadcast", 
+    "mxf", 
+    "video conversion"
+  ],
+  "graphs": [
+    {
+      "name": "proresraw",
+      "version": "8.0"
+    }
+  ]
+}
