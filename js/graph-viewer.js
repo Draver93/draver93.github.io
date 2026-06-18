@@ -516,8 +516,9 @@ class GraphLibrary {
             
             const isActive = window.location.pathname.includes('graph-viewer.html') && item.label === 'Graph Library';
             const activeClass = isActive ? 'class="active"' : '';
+            const liClass = item.label === 'Graph Library' ? ' class="nav-link-accent"' : '';
             
-            return `<li><a href="${item.url.startsWith('#') ? 'index.html' : ''}${url}" ${activeClass}>${item.label}</a></li>`;
+            return `<li${liClass}><a href="${item.url.startsWith('#') ? 'index.html' : ''}${url}" ${activeClass}>${item.label}</a></li>`;
         }).join('');
     }
 

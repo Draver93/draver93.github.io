@@ -139,7 +139,8 @@ class ContentLoader {
                 return `<li><span class="nav-link-disabled">${item.label}</span></li>`;
             }
             
-            return `<li><a href="${url}">${item.label}</a></li>`;
+            const liClass = item.label === 'Graph Library' ? ' class="nav-link-accent"' : '';
+            return `<li${liClass}><a href="${url}">${item.label}</a></li>`;
         }).join('');
     }
 
