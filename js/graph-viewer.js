@@ -406,7 +406,7 @@ class GraphLibrary {
         
         // Add ellipsis at start if needed
         if (startPage > 1) {
-            this.addEllipsis(this.pageNumbersContainer, true);
+            this.addEllipsis(this.pageNumbersContainer);
         }
         
         // Add page numbers
@@ -416,7 +416,7 @@ class GraphLibrary {
         
         // Add ellipsis at end if needed
         if (endPage < this.totalPages) {
-            this.addEllipsis(this.pageNumbersContainer, false);
+            this.addEllipsis(this.pageNumbersContainer);
         }
     }
 
@@ -428,17 +428,12 @@ class GraphLibrary {
         this.pageNumbersContainer.appendChild(pageBtn);
     }
 
-    addEllipsis(container, isStart) {
+    addEllipsis(container) {
         const ellipsis = document.createElement('span');
         ellipsis.textContent = '...';
         ellipsis.style.padding = '0.7rem 0.5rem';
         ellipsis.style.color = 'var(--text-muted)';
-        
-        if (isStart) {
-            container.appendChild(ellipsis);
-        } else {
-            container.appendChild(ellipsis);
-        }
+        container.appendChild(ellipsis);
     }
 
     goToPage(page) {
@@ -519,7 +514,7 @@ class GraphLibrary {
                 return `<li><span class="nav-link-disabled">${item.label}</span></li>`;
             }
             
-            const isActive = window.location.pathname.includes('graph-library.html') && item.label === 'Graph Library';
+            const isActive = window.location.pathname.includes('graph-viewer.html') && item.label === 'Graph Library';
             const activeClass = isActive ? 'class="active"' : '';
             
             return `<li><a href="${item.url.startsWith('#') ? 'index.html' : ''}${url}" ${activeClass}>${item.label}</a></li>`;

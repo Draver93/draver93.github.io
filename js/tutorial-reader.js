@@ -111,8 +111,6 @@ class TutorialReader {
             </div>
         `;
         
-        // Update navigation links
-        this.updateNavigationLinks();
     }
 
     displayTutorialBody(tutorial) {
@@ -362,36 +360,6 @@ class TutorialReader {
         `;
         
         body.innerHTML = '';
-    }
-
-    showLoading() {
-        const header = document.getElementById('tutorial-header');
-        const body = document.getElementById('tutorial-body');
-        
-        header.innerHTML = `
-            <div class="tutorial-loading">
-                <i class="fas fa-spinner fa-spin"></i>
-                <p>Loading tutorial...</p>
-            </div>
-        `;
-        
-        body.innerHTML = '';
-    }
-    
-    updateNavigationLinks() {
-        if (!this.links || !this.links.navigation) return;
-        
-        // Update navigation links if they exist
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && href.includes('#')) {
-                const section = href.split('#')[1];
-                if (this.links.navigation[section]) {
-                    link.href = `index.html${this.links.navigation[section]}`;
-                }
-            }
-        });
     }
 
     populateNavigation() {

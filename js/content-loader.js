@@ -345,7 +345,7 @@ class ContentLoader {
                     <h3>${platform.name}</h3>
                     <p>${platform.description}</p>
                     ${isAvailable ? 
-                        Object.entries(downloadUrls).map(([key, url]) => `<a href="${url}" class="download-btn ellipsis-start"">Download .${key}</a>`).join('') :
+                        Object.entries(downloadUrls).map(([key, url]) => `<a href="${url}" class="download-btn ellipsis-start">Download .${key}</a>`).join('') :
                         `<button class="download-btn ellipsis-start download-btn-disabled" disabled>Coming Soon</button>`
                     }
                 </div>
@@ -356,20 +356,6 @@ class ContentLoader {
             versionInfo.innerHTML = `Current version: ${downloads.currentVersion} | Released: ${downloads.releaseDate}`;
         }
 
-        // Add click handlers for platform details
-        this.initPlatformDetails();
-    }
-
-    initPlatformDetails() {
-        const platformCards = document.querySelectorAll('.platform-card');
-        platformCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Don't allow clicking on unavailable platforms
-                if (card.classList.contains('platform-unavailable')) {
-                    return;
-                }
-            });
-        });
     }
 
     initDynamicFeatures() {
@@ -445,8 +431,10 @@ class ContentLoader {
     }
 
     showFallbackContent() {
-        console.log('Using fallback content - content files could not be loaded');
-        // The page will show the original HTML content if JSON loading fails
+        const fallback = document.querySelector('.hero h1, .section-title h2, .version-info p');
+        if (fallback) {
+            fallback.textContent = 'Content could not be loaded. Please refresh the page.';
+        }
     }
 
     getImageClasses(imageOptions) {
@@ -464,21 +452,17 @@ class ContentLoader {
     }
 
     getImageAttributes(imageOptions) {
-        const attributes = [];
-        
+        const classes = [];
+
         if (imageOptions.crop) {
-            attributes.push(`class="crop-${imageOptions.crop}"`);
+            classes.push(`crop-${imageOptions.crop}`);
         }
-        
+
         if (imageOptions.fit) {
-            attributes.push(`class="fit-${imageOptions.fit}"`);
+            classes.push(`fit-${imageOptions.fit}`);
         }
-        
-        if (imageOptions.crop && imageOptions.fit) {
-            attributes.push(`class="crop-${imageOptions.crop} fit-${imageOptions.fit}"`);
-        }
-        
-        return attributes.join(' ');
+
+        return classes.length ? `class="${classes.join(' ')}"` : '';
     }
 }
 

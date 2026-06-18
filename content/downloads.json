@@ -6,22 +6,19 @@
       "id": "windows",
       "name": "Windows",
       "description": "For Windows 10 and 11",
-      "icon": "fab fa-windows",
-      "downloadUrl": "#"
+      "icon": "fab fa-windows"
     },
     {
       "id": "macos",
       "name": "macOS",
       "description": "For macOS 13+",
-      "icon": "fab fa-apple",
-      "downloadUrl": "#"
+      "icon": "fab fa-apple"
     },
     {
       "id": "linux",
       "name": "Linux",
       "description": "For Ubuntu latest",
-      "icon": "fab fa-linux",
-      "downloadUrl": "#"
+      "icon": "fab fa-linux"
     }
   ]
 }

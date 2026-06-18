@@ -737,38 +737,6 @@ footer {
     margin-top: var(--space-lg);
 }
 
-.platform-details {
-    margin-top: var(--space-lg);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--border-color);
-    text-align: left;
-}
-
-.platform-details p {
-    margin-bottom: var(--space-sm);
-    color: var(--text-muted);
-}
-
-.platform-details ul {
-    list-style: none;
-    padding: 0;
-}
-
-.platform-details li {
-    padding: var(--space-xs) 0;
-    color: var(--text-muted);
-    position: relative;
-    padding-left: var(--space-lg);
-}
-
-.platform-details li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--success-color);
-    font-weight: bold;
-}
-
 /* Patreon Support Section */
 .patreon-support {
     background: var(--bg-color);
@@ -994,7 +962,7 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-    z
+    
     .section {
         padding: var(--space-xl) 0;
     }
@@ -1020,7 +988,7 @@ footer {
         display: block;
     }
     
-    nav ul.show {
+    nav.active ul {
         display: flex;
     }
 }
@@ -1064,7 +1032,7 @@ footer {
         background: var(--header-bg);
     }
     
-    nav ul.show {
+    nav.active ul {
         display: flex;
         flex-direction: column;
     }
@@ -1081,6 +1049,20 @@ footer {
     
     .mobile-menu-btn {
         display: block;
+    }
+}
+
+/* Scroll-triggered animation */
+.animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

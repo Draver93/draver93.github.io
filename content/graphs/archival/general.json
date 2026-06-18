@@ -5,7 +5,7 @@
   "tags": ["archival", "universal", "avi", "mpeg4", "divx", "xvid", "mp3"],
   "graphs": [
     {
-      "name": "volume",
+      "name": "archival",
       "version": "5.1"
     }
   ]
