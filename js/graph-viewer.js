@@ -534,5 +534,13 @@ class GraphLibrary {
 
 // Initialize graph library when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+    if (menuBtn && nav) {
+        menuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
     new GraphLibrary();
 });

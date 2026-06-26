@@ -369,6 +369,8 @@ class TutorialReader {
         const navList = document.querySelector('nav ul');
         if (!navList) return;
 
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const isTutorialReader = currentPage.includes('tutorial-reader');
         navList.innerHTML = navigation.map(item => {
             const url = item.url.startsWith('#') ? item.url : links.navigation[item.url] || item.url;
             const isAvailable = url && url.trim() !== '' && url !== '#';
@@ -377,8 +379,11 @@ class TutorialReader {
                 return `<li><span class="nav-link-disabled">${item.label}</span></li>`;
             }
             
+            const targetPage = url.split('/').pop().split('#')[0];
+            const isActive = targetPage && targetPage === currentPage || (isTutorialReader && item.label === 'Tutorials');
+            const activeClass = isActive ? 'class="active"' : '';
             const liClass = item.label === 'Graph Library' ? ' class="nav-link-accent"' : '';
-            return `<li${liClass}><a href="${item.url.startsWith('#') ? 'index.html' : ''}${url}">${item.label}</a></li>`;
+            return `<li${liClass}><a href="${item.url.startsWith('#') ? 'index.html' : ''}${url}" ${activeClass}>${item.label}</a></li>`;
         }).join('');
     }
 
@@ -392,6 +397,14 @@ class TutorialReader {
 
 // Initialize tutorial reader when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+    if (menuBtn && nav) {
+        menuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
     new TutorialReader();
 });
 

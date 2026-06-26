@@ -131,6 +131,7 @@ class ContentLoader {
         const navList = document.querySelector('nav ul');
         if (!navList) return;
 
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         navList.innerHTML = navigation.map(item => {
             const url = item.url.startsWith('#') ? item.url : links.navigation[item.url] || item.url;
             const isAvailable = url && url.trim() !== '' && url !== '#';
@@ -139,8 +140,11 @@ class ContentLoader {
                 return `<li><span class="nav-link-disabled">${item.label}</span></li>`;
             }
             
+            const targetPage = url.split('/').pop().split('#')[0] || 'index.html';
+            const isActive = !url.startsWith('#') && targetPage === currentPage;
+            const activeClass = isActive ? 'class="active"' : '';
             const liClass = item.label === 'Graph Library' ? ' class="nav-link-accent"' : '';
-            return `<li${liClass}><a href="${url}">${item.label}</a></li>`;
+            return `<li${liClass}><a href="${url}" ${activeClass}>${item.label}</a></li>`;
         }).join('');
     }
 

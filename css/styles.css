@@ -1058,9 +1058,8 @@ footer {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-md);
+        flex-wrap: wrap;
+        gap: 0;
     }
         
     .hero h1 {
@@ -1099,10 +1098,38 @@ footer {
     
     .mobile-menu-btn {
         display: block;
+        margin-left: auto;
     }
-    
+
+    nav {
+        flex: 0 0 100%;
+        order: 3;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-color);
+        padding: 0;
+        margin: 0 calc(-1 * var(--space-xl));
+        width: calc(100% + 2 * var(--space-xl));
+    }
+
     nav.active ul {
         display: flex;
+        margin-top: var(--space-md);
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 0;
+    }
+
+    nav ul a {
+        display: block;
+        padding: var(--space-md);
+        border-radius: 0;
+        text-align: center;
     }
 }
 
@@ -1128,40 +1155,6 @@ footer {
     
     .container {
         padding: 0 var(--space-md);
-    }
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    nav ul {
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--header-bg);
-    }
-    
-    nav.active ul {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    nav ul li {
-        width: 100%;
-    }
-    
-    nav ul a {
-        display: block;
-        padding: var(--space-md);
-        border-radius: var(--radius-md);
-    }
-    
-    .mobile-menu-btn {
-        display: block;
     }
 }
 
