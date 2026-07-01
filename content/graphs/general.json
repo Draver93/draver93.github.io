@@ -50,6 +50,7 @@
     "channel-mixing-with-ratios",
     "simple-stereo-to-mono",
     "cut-out-video-and-audio-segments",
-    "concut-with-transition"
+    "concut-with-transition",
+    "equalizer-overlay"
   ]
 }

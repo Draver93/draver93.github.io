@@ -1,0 +1,17 @@
+{
+  "title": "Equalizer Overlay",
+  "description": "Splits audio into low/mid/high frequency bands and overlays a real-time frequency visualization on the video.",
+  "image": "assets/images/graphs/equalizer-overlay.png",
+  "tags": [
+    "equalizer",
+    "audio",
+    "visualization",
+    "overlay"
+  ],
+  "graphs": [
+    {
+      "name": "equalizer-overlay",
+      "version": "8.0"
+    }
+  ]
+}
